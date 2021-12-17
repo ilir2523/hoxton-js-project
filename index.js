@@ -3,6 +3,19 @@ const state = {
     tab: null
 }
 
+function fetchPlaces() {
+    return fetch("http://localhost:3000/cities").then(resp => resp.json())
+}
+
+function getCitiesFromServerToPlaces(){
+    return fetchPlaces().then(function (city) {
+        state.places = city
+        render()
+    })
+}
+
+getCitiesFromServerToPlaces()
+
 function renderHeader(){
     const headerEl = document.createElement('header')
     headerEl.setAttribute('class', 'header-section')
@@ -31,15 +44,29 @@ function renderMain(){
     const whereToGosectionEl = document.createElement('section')
     whereToGosectionEl.setAttribute('class', 'where-to-go-main-section')
 
-    const placeImageEl = document.createElement('img')
-    placeImageEl.setAttribute('src', 'https://albania.al/wp-content/uploads/2019/08/krujacrop2.jpg')
-    placeImageEl.setAttribute('class', 'place-image-main-section')
-    placeImageEl.setAttribute('alt', 'place-image')
+    for (place of state.places) {
+        const placesContainerDivEl = document.createElement('div')
+        placesContainerDivEl.setAttribute('class', 'container')
 
-    whereToGosectionEl.append(placeImageEl)
+        const placeImageEl = document.createElement('img')
+        placeImageEl.setAttribute('src', place.image)
+        placeImageEl.setAttribute('class', 'place-image-main-section')
+        placeImageEl.setAttribute('alt', 'place-image')
+
+        const placeNameH3El =document.createElement('h3')
+        placeNameH3El.setAttribute('class', 'place-name-main-section')
+        placeNameH3El.textContent = place.name
+
+        placesContainerDivEl.append(placeImageEl, placeNameH3El)
+        whereToGosectionEl.append(placesContainerDivEl)
+    }
+    
     mainEl.append(firstImageEl, pageNameEl, whereToGosectionEl)
     document.body.append(mainEl)
 }
-
-renderHeader()
-renderMain()
+function render() {
+    document.body.innerHTML = ''
+    renderHeader()
+    renderMain()
+}
+render()
