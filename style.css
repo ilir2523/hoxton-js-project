@@ -22,7 +22,11 @@ body {
     padding:  0 2rem;
 }
 
+.where-to-go-main-section{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(269px, 1fr));
+}
+
 .place-image-main-section {
     width: 100%;
-    
 }

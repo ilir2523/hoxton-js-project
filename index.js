@@ -36,7 +36,8 @@ function renderMain(){
     placeImageEl.setAttribute('class', 'place-image-main-section')
     placeImageEl.setAttribute('alt', 'place-image')
 
-    mainEl.append(firstImageEl, pageNameEl, placeImageEl)
+    whereToGosectionEl.append(placeImageEl)
+    mainEl.append(firstImageEl, pageNameEl, whereToGosectionEl)
     document.body.append(mainEl)
 }
 
