@@ -1,0 +1,16 @@
+{
+  "city": [
+    {
+      "id": 1,
+      "name": "Tirana",
+      "image": "https://lp-cms-production.imgix.net/2019-06/25e80d94ce0c6dfee0634a2b8598feae-tirana.jpg",
+      "info": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus laudantium modi alias asperiores. Dolore asperiores pariatur commodi nihil voluptas vitae ullam quis tenetur, quam animi aspernatur, iusto ut voluptates nisi."
+    },
+    {
+      "id": 2,
+      "name": "Dursi",
+      "image": "https://lp-cms-production.imgix.net/2019-06/25e80d94ce0c6dfee0634a2b8598feae-tirana.jpg",
+      "info": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus laudantium modi alias asperiores. Dolore asperiores pariatur commodi nihil voluptas vitae ullam quis tenetur, quam animi aspernatur, iusto ut voluptates nisi."
+    }
+  ]
+}  
