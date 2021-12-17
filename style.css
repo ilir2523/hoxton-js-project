@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: blueviolet;
+    display: grid;
+    grid-template-columns: 100px 1fr 70px;
+    width: 100vw;
+    height: 100vh;
+
+}
+header{
+    display: grid;
+    grid-template-columns: auto 1fr 1fr auto;
+    place-items: center;
+    padding: 1rem;
+    gap: 1rem;
+    background-color: burlywood;
+}
+
+header ul{
+    list-style: none;
+    display: grid ;
+    grid-template-columns: repeat(4, 100px);
+    padding: 20px;
+}
+.ul-list a{
+    text-decoration: none;
+    
+}
