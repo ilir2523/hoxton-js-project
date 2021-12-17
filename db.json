@@ -3,25 +3,25 @@
     {
       "id": 1,
       "name": "Tirana",
-      "image": "https://lp-cms-production.imgix.net/2019-06/25e80d94ce0c6dfee0634a2b8598feae-tirana.jpg",
+      "image": "https://pbs.twimg.com/media/FGMK6UWXoAQ4gn9?format=jpg&name=large",
       "info": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus laudantium modi alias asperiores. Dolore asperiores pariatur commodi nihil voluptas vitae ullam quis tenetur, quam animi aspernatur, iusto ut voluptates nisi."
     },
     {
       "id": 2,
       "name": "Dursi",
-      "image": "https://lp-cms-production.imgix.net/2019-06/25e80d94ce0c6dfee0634a2b8598feae-tirana.jpg",
+      "image": "https://www.shkendijatravel.com/wp-content/uploads/2021/02/Durres-Albania-pedonalja-qendres.jpg",
       "info": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus laudantium modi alias asperiores. Dolore asperiores pariatur commodi nihil voluptas vitae ullam quis tenetur, quam animi aspernatur, iusto ut voluptates nisi."
     },
     {
       "id": 3,
-      "name": "Tirana",
-      "image": "https://lp-cms-production.imgix.net/2019-06/25e80d94ce0c6dfee0634a2b8598feae-tirana.jpg",
+      "name": "Vlore",
+      "image": "http://d39raawggeifpx.cloudfront.net/styles/16_9_desktop/s3/articleimages/800px-Perendim,1_shtator_2017_Vlore_Albania-2_Cropped_0.jpg",
       "info": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus laudantium modi alias asperiores. Dolore asperiores pariatur commodi nihil voluptas vitae ullam quis tenetur, quam animi aspernatur, iusto ut voluptates nisi."
     },
     {
       "id": 4,
-      "name": "Dursi",
-      "image": "https://lp-cms-production.imgix.net/2019-06/25e80d94ce0c6dfee0634a2b8598feae-tirana.jpg",
+      "name": "Korce",
+      "image": "https://i.pinimg.com/originals/02/de/15/02de15161cabebdcb597d3240265484e.jpg",
       "info": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus laudantium modi alias asperiores. Dolore asperiores pariatur commodi nihil voluptas vitae ullam quis tenetur, quam animi aspernatur, iusto ut voluptates nisi."
     }
   ]
