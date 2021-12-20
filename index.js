@@ -26,6 +26,7 @@ function renderHeader() {
     pageNameEl.textContent = 'Visit Albania'
     pageNameEl.addEventListener('click', function() {
         state.tab = null
+        state.selectedPlace = null
         render()
     })
 
@@ -38,6 +39,7 @@ function renderHeader() {
     aHomeEl.textContent = "Home"
     homeLiEl.addEventListener('click', function() {
         state.tab = null
+        state.selectedPlace = null
         render()
     })
     homeLiEl.append(aHomeEl)
