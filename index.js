@@ -1,6 +1,7 @@
 const state = {
     places: [],
-    tab: null
+    tab: null,
+    selectedPlace: null
 }
 
 function fetchPlaces() {
@@ -89,10 +90,15 @@ function renderMain() {
     whereToGosectionEl.setAttribute('class', 'where-to-go-main-section')
 
     let i = 0
-    for (place of state.places) {
+    for (const place of state.places) {
         if (i < 4) {
         const placesContainerDivEl = document.createElement('div')
         placesContainerDivEl.setAttribute('class', 'container')
+        placesContainerDivEl.addEventListener('click', function() {
+            state.tab = "one-place"
+            state.selectedPlace = place.id
+            render()
+        })
 
         const placeImageEl = document.createElement('img')
         placeImageEl.setAttribute('src', place.image)
@@ -112,9 +118,53 @@ function renderMain() {
         i++
     }
 }
+
+{/* <main class="one-item-main"><img class="one-item-image"
+            src="https://img.hollisterco.com/is/image/anf/KIC_324-1085-0123-100_prod1" alt="one item image">
+        <secction class="one-item-secction">
+            <h3 class="one-name-list-secction">CREWNECK T-SHIRT 3-PACK</h3><button class="one-item-button">ADD TO
+                BAG</button>
+        </secction>
+    </main> */}
+
+function renderOnePage(places){
+
+    let place = null
+    for (const myPlace of places) {
+        if (myPlace.id === state.selectedPlace) {
+            place = myPlace
+        }
+    }
+
+    const mainEl = document.createElement('main')
+    mainEl.setAttribute('class', 'main-section')
+
+    const placeImageEl = document.createElement('img')
+    placeImageEl.setAttribute('class', 'one-place-image')
+    placeImageEl.setAttribute('src', place.image)
+    placeImageEl.setAttribute('alt', 'one-place-image')
+
+    const onePlaceSeccionEl = document.createElement('secction')
+    onePlaceSeccionEl.setAttribute('class', 'one-place-secction')
+
+    const placeNameEl = document.createElement('h3')
+    placeNameEl.setAttribute('class', 'one-name-list-secction')
+    placeNameEl.textContent = place.name
+
+    onePlaceSeccionEl.append(placeNameEl)
+    mainEl.append(placeImageEl, onePlaceSeccionEl)
+    document.body.append(mainEl)
+}
+
 function render() {
     document.body.innerHTML = ''
     renderHeader()
-    renderMain()
+    if(state.tab === null){
+        renderMain()
+        
+    } else if (state.tab === 'one-place') {
+        renderOnePage(state.places)
+    }
+    
 }
 render()
