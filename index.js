@@ -38,6 +38,12 @@ function renderHeader() {
     const whereToGoLink = document.createElement("a")
     whereToGoLink.setAttribute("href", "#")
     whereToGoLink.textContent = "Where To Go"
+    whereToGoLink.addEventListener('click', function(){
+        state.tab = 'where-to-go'
+        state.selectedPlace = null
+        render()
+    })
+
     whereToGoEl.append(whereToGoLink)
 
     const whatToDoEl = document.createElement("li")
@@ -71,6 +77,39 @@ function renderHeader() {
 
     headerEl.append(pageNameEl, ulHeaderLeft, headerButtonEl)
     document.body.append(headerEl)
+}
+
+function renderWhereToGoMain() {
+    const mainEl = document.createElement('main')
+    mainEl.setAttribute('class', 'main-section')
+
+    const whereToGosectionEl = document.createElement('section')
+    whereToGosectionEl.setAttribute('class', 'where-to-go-main-section')
+
+    for (const place of state.places) {
+        const placesContainerDivEl = document.createElement('div')
+        placesContainerDivEl.setAttribute('class', 'container')
+        placesContainerDivEl.addEventListener('click', function() {
+            state.tab = "one-place"
+            state.selectedPlace = place.id
+            render()
+        })
+
+        const placeImageEl = document.createElement('img')
+        placeImageEl.setAttribute('src', place.image)
+        placeImageEl.setAttribute('class', 'place-image-main-section')
+        placeImageEl.setAttribute('alt', 'place-image')
+
+        const placeNameH3El = document.createElement('h3')
+        placeNameH3El.setAttribute('class', 'place-name-main-section')
+        placeNameH3El.textContent = place.name
+
+        placesContainerDivEl.append(placeImageEl, placeNameH3El)
+        whereToGosectionEl.append(placesContainerDivEl)
+
+        mainEl.append(whereToGosectionEl)
+        document.body.append(mainEl)
+    }
 }
 
 function renderMain() {
@@ -119,14 +158,6 @@ function renderMain() {
     }
 }
 
-{/* <main class="one-item-main"><img class="one-item-image"
-            src="https://img.hollisterco.com/is/image/anf/KIC_324-1085-0123-100_prod1" alt="one item image">
-        <secction class="one-item-secction">
-            <h3 class="one-name-list-secction">CREWNECK T-SHIRT 3-PACK</h3><button class="one-item-button">ADD TO
-                BAG</button>
-        </secction>
-    </main> */}
-
 function renderOnePage(places){
 
     let place = null
@@ -160,10 +191,11 @@ function render() {
     document.body.innerHTML = ''
     renderHeader()
     if(state.tab === null){
-        renderMain()
-        
+        renderMain() 
     } else if (state.tab === 'one-place') {
         renderOnePage(state.places)
+    } else if (state.tab === 'where-to-go') {
+        renderWhereToGoMain()
     }
     
 }
