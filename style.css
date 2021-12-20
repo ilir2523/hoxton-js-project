@@ -57,6 +57,7 @@ header ul{
 .one__place-main-section{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    height: 90vh;
     
 }
 .one-place-image{
