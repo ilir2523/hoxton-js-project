@@ -9,21 +9,19 @@ body {
 
     grid-template-rows: 70px 1fr 70px;
     font-family: sans-serif;
-    width: 100vw;
-    height: 100vh;
-    padding:  0 2rem;
+    /* margin:  0 2rem; */
 }
 
 header{
     display: grid;
-    grid-template-columns: 200px 1fr 150px;
+    grid-template-columns: 200px 1fr auto;
     place-items: center;
-    margin: 0 -2rem;
-    padding: 1rem;
+    padding: 0 1rem;
     background-color: #ffffff;
     color: #000000;
     position: sticky;
     top: 0;
+    z-index: 10;
 }
 
 .logo-header-section{ 
@@ -36,9 +34,9 @@ header ul{
 
 .left-ul-header{
     display: grid;
-    grid-template-columns: repeat(4, minmax(100px, auto));
+    grid-template-columns: repeat(4, auto);
    justify-content: center;
-   gap: 1.5rem;
+   gap: 1rem;
 }
 
 .left-ul-header a{
@@ -54,7 +52,6 @@ header ul{
     grid-template-columns: repeat(2, 80px);
    justify-content: end;
    gap: 1rem;
-   padding-left: 2rem;
 }
 
 .one__place-main-section{
@@ -76,20 +73,23 @@ header ul{
 }
 .main-section {
     display: grid;
-    grid-auto-rows: 0.5fr 50px 0.4fr;
+    grid-auto-rows: 0.5fr 0 0.5fr;
+    padding: 0 2rem;
 }
 
 
 .image-main-section {
     width: 100%;
+    display: grid;
+    place-self: center;
+    padding-bottom: 2rem;
     /* height: 400px; */
 }
 
 .where-to-go-main-section{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1rem;
-
     padding: 4rem 0;
 }
 
@@ -109,4 +109,21 @@ header ul{
 .place-image-main-section {
     width: 100%;
     height: 250px;
+}
+
+footer {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    place-items: center;
+    background-color: #f5f5f5;
+}
+
+.rights-footer {
+    place-self: end center;
+}
+
+footer div img {
+    width: 50px;
+    height: 50px;
+    z-index: 9;
 }
