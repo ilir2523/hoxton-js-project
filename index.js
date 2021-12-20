@@ -88,7 +88,9 @@ function renderMain() {
     const whereToGosectionEl = document.createElement('section')
     whereToGosectionEl.setAttribute('class', 'where-to-go-main-section')
 
+    let i = 0
     for (place of state.places) {
+        if (i < 4) {
         const placesContainerDivEl = document.createElement('div')
         placesContainerDivEl.setAttribute('class', 'container')
 
@@ -103,10 +105,12 @@ function renderMain() {
 
         placesContainerDivEl.append(placeImageEl, placeNameH3El)
         whereToGosectionEl.append(placesContainerDivEl)
-    }
 
-    mainEl.append(firstImageEl, pageNameEl, whereToGosectionEl)
-    document.body.append(mainEl)
+        mainEl.append(firstImageEl, pageNameEl, whereToGosectionEl)
+        document.body.append(mainEl)
+        }
+        i++
+    }
 }
 function render() {
     document.body.innerHTML = ''
