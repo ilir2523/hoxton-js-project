@@ -7,7 +7,7 @@ function fetchPlaces() {
     return fetch("http://localhost:3000/cities").then(resp => resp.json())
 }
 
-function getCitiesFromServerToPlaces(){
+function getCitiesFromServerToPlaces() {
     return fetchPlaces().then(function (city) {
         state.places = city
         render()
@@ -16,7 +16,7 @@ function getCitiesFromServerToPlaces(){
 
 getCitiesFromServerToPlaces()
 
-function renderHeader(){
+function renderHeader() {
     const headerEl = document.createElement('header')
     headerEl.setAttribute('class', 'header-section')
 
@@ -24,11 +24,55 @@ function renderHeader(){
     pageNameEl.setAttribute('class', 'logo-header-section')
     pageNameEl.textContent = 'Visit Albania'
 
-    headerEl.append(pageNameEl)
+    const ulHeaderLeft = document.createElement("ul")
+    ulHeaderLeft.setAttribute("class", "left-ul-header")
+
+    const homeLiEl = document.createElement("li")
+    const aHomeEl = document.createElement("a")
+    aHomeEl.setAttribute("href", "#")
+    aHomeEl.textContent = "Home"
+    homeLiEl.append(aHomeEl)
+
+    const whereToGoEl = document.createElement("li")
+    const whereToGoLink = document.createElement("a")
+    whereToGoLink.setAttribute("href", "#")
+    whereToGoLink.textContent = "Where To Go"
+    whereToGoEl.append(whereToGoLink)
+
+    const whatToDoEl = document.createElement("li")
+    const whatToDoLink = document.createElement("a")
+    whatToDoLink.setAttribute("href", "#")
+    whatToDoLink.textContent = "What To Do"
+    whatToDoEl.append(whatToDoLink)
+
+    const contactLiEl = document.createElement("li")
+    contactLiEl.setAttribute("class", "header-ul-right")
+    contactLiEl.textContent = "Contact"
+
+    ulHeaderLeft.append(homeLiEl, whereToGoEl, whatToDoEl, contactLiEl)
+
+    const headerButtonEl = document.createElement("ul")
+    headerButtonEl.setAttribute("class", "headers-button")
+
+    const liButtonEl = document.createElement("li")
+    const signButtonEl = document.createElement("button")
+    signButtonEl.textContent = "Sign In"
+
+    liButtonEl.append(signButtonEl)
+
+    const liSearchButton = document.createElement("li")
+    const searchButtonEl = document.createElement("button")
+    searchButtonEl.textContent = "Search"
+
+    liSearchButton.append(searchButtonEl)
+
+    headerButtonEl.append(liButtonEl, liSearchButton)
+
+    headerEl.append(pageNameEl, ulHeaderLeft, headerButtonEl)
     document.body.append(headerEl)
 }
 
-function renderMain(){
+function renderMain() {
     const mainEl = document.createElement('main')
     mainEl.setAttribute('class', 'main-section')
 
@@ -53,14 +97,14 @@ function renderMain(){
         placeImageEl.setAttribute('class', 'place-image-main-section')
         placeImageEl.setAttribute('alt', 'place-image')
 
-        const placeNameH3El =document.createElement('h3')
+        const placeNameH3El = document.createElement('h3')
         placeNameH3El.setAttribute('class', 'place-name-main-section')
         placeNameH3El.textContent = place.name
 
         placesContainerDivEl.append(placeImageEl, placeNameH3El)
         whereToGosectionEl.append(placesContainerDivEl)
     }
-    
+
     mainEl.append(firstImageEl, pageNameEl, whereToGosectionEl)
     document.body.append(mainEl)
 }
