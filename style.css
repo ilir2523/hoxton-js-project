@@ -20,13 +20,12 @@ header{
     place-items: center;
     margin: 0 -2rem;
     padding: 1rem;
-    background-color: rgba(83, 80, 80, 0.7);
-    color: white;
+    background-color: #ffffff;
+    color: #000000;
     position: sticky;
     top: 0;
 }
 
-/* no need for grid */
 .logo-header-section{ 
     color: rgb(13, 48, 13);
 }
@@ -46,8 +45,10 @@ header ul{
 
 .left-ul-header a{
     text-decoration: none;
-    color: white
-    
+    color:#000000;
+}
+.left-ul-header a:hover {
+    color: #fadc41;
 }
 
 .headers-button{
@@ -88,6 +89,9 @@ header ul{
 .where-to-go-main-section{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+
+    padding: 4rem 0;
 }
 
 .container{

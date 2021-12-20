@@ -24,6 +24,10 @@ function renderHeader() {
     const pageNameEl = document.createElement('h1')
     pageNameEl.setAttribute('class', 'logo-header-section')
     pageNameEl.textContent = 'Visit Albania'
+    pageNameEl.addEventListener('click', function() {
+        state.tab = null
+        render()
+    })
 
     const ulHeaderLeft = document.createElement("ul")
     ulHeaderLeft.setAttribute("class", "left-ul-header")
@@ -32,6 +36,10 @@ function renderHeader() {
     const aHomeEl = document.createElement("a")
     aHomeEl.setAttribute("href", "#")
     aHomeEl.textContent = "Home"
+    homeLiEl.addEventListener('click', function() {
+        state.tab = null
+        render()
+    })
     homeLiEl.append(aHomeEl)
 
     const whereToGoEl = document.createElement("li")
@@ -53,8 +61,12 @@ function renderHeader() {
     whatToDoEl.append(whatToDoLink)
 
     const contactLiEl = document.createElement("li")
-    contactLiEl.setAttribute("class", "header-ul-right")
-    contactLiEl.textContent = "Contact"
+    const contactLinkEl = document.createElement("a")
+    contactLinkEl.setAttribute("href", "#")
+    contactLinkEl.setAttribute("class", "header-ul-right")
+    contactLinkEl.textContent = "Contact"
+
+    contactLiEl.append(contactLinkEl)
 
     ulHeaderLeft.append(homeLiEl, whereToGoEl, whatToDoEl, contactLiEl)
 
@@ -118,7 +130,7 @@ function renderMain() {
 
     const firstImageEl = document.createElement('img')
     firstImageEl.setAttribute('class', 'image-main-section')
-    firstImageEl.setAttribute('src', 'https://albania.al/wp-content/uploads/2019/08/krujacrop2.jpg')
+    firstImageEl.setAttribute('src', 'https://preview.redd.it/qzl76zve3n541.jpg?auto=webp&s=92f26c06f3769e14e056eddb148f7c38420f78a1')
     firstImageEl.setAttribute('alt', 'first-image')
 
     const pageNameEl = document.createElement('h2')
