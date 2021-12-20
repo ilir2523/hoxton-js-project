@@ -172,6 +172,11 @@ function renderMain() {
     }
 }
 
+function renderFooter() {
+    const footerEl = document.createElement('footer')
+
+}
+
 function renderOnePage(places){
 
     let place = null
