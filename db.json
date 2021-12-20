@@ -4,37 +4,61 @@
       "id": 1,
       "name": "Tirana",
       "image": "https://pbs.twimg.com/media/FGMK6UWXoAQ4gn9?format=jpg&name=large",
-      "info": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus laudantium modi alias asperiores. Dolore asperiores pariatur commodi nihil voluptas vitae ullam quis tenetur, quam animi aspernatur, iusto ut voluptates nisi."
+      "info": "Tirana city is thecapital of Albania. It lies 17 miles (27 km) east of the Adriatic Sea coast and along the Ishm River, at the end of a fertile plain. It is not easy to describe Tirana in a few words. Descriptions such as “a vibrant city”, “colorful city” are merely an attempt to give some sort of impression of the culture, passion and enjoyment to be found in the city. Whether it is a visit in one of the attractions, museums and surrounding castles or an evening at clubs and bars in the most trendiest parts of the city, allow yourself to be inspired by the joys that await you in Tirana."
     },
     {
       "id": 2,
       "name": "Durres",
       "image": "https://www.shkendijatravel.com/wp-content/uploads/2021/02/Durres-Albania-pedonalja-qendres.jpg",
-      "info": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus laudantium modi alias asperiores. Dolore asperiores pariatur commodi nihil voluptas vitae ullam quis tenetur, quam animi aspernatur, iusto ut voluptates nisi."
+      "info": "Durres is a versatile port city with both a modern and ancient appeal. If fun in the sun is in order look no further than the waterfront, where Albania’s largest and liveliest beach buzzes with activity in summer. Durres is also replete with Roman and Byzantine heritage – you can discover the remnants of Albania’s biggest amphitheatre here, while both the city defences and forum date back 1500 years. You could also travel inland to see the castle where Albanian national icon Skanderbeg fought off three Ottoman sieges in the 1400s."
     },
     {
       "id": 3,
       "name": "Vlore",
       "image": "http://d39raawggeifpx.cloudfront.net/styles/16_9_desktop/s3/articleimages/800px-Perendim,1_shtator_2017_Vlore_Albania-2_Cropped_0.jpg",
-      "info": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus laudantium modi alias asperiores. Dolore asperiores pariatur commodi nihil voluptas vitae ullam quis tenetur, quam animi aspernatur, iusto ut voluptates nisi."
+      "info": "Vlore is a harbour city that holds special meaning for Albanians, as this is where the country declared its independence from the Ottoman Empire at the start of the 20th century. So you can take a whistle-stop tour of monuments and museums celebrating the statesman Ismail Qemali’s first government, and in doing so get to know a little more about what it means to be Albanian. If you’d like ideas for days trips the wider region is both untamed and beautiful. Relaxing tourist beaches with clear waters are just a handful of kilometres away, and if you follow the coastal road south there’s a string of charming little resorts punctuated by the vast mountainscapes of the Llogora National Park."
     },
     {
       "id": 4,
       "name": "Korce",
       "image": "https://i.pinimg.com/originals/02/de/15/02de15161cabebdcb597d3240265484e.jpg",
-      "info": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus laudantium modi alias asperiores. Dolore asperiores pariatur commodi nihil voluptas vitae ullam quis tenetur, quam animi aspernatur, iusto ut voluptates nisi."
+      "info": "The small city of Korca (also written as Korçë or Korça) in southeastern Albania might only be 3 hours from Tirana by car, but it feels completely off the beaten tourist track. The country’s eighth-largest city by population, Korçë (pronounced ‘kor-cha’) has a history that dates back to the 13th century. It’s known for its role in Albanian culture and intellectual heritage (most famously for being home to the first Albanian language school), world-class museums, beautiful old churches, and pretty architecture."
     },
     {
-      "id": 3,
-      "name": "Vlore",
-      "image": "http://d39raawggeifpx.cloudfront.net/styles/16_9_desktop/s3/articleimages/800px-Perendim,1_shtator_2017_Vlore_Albania-2_Cropped_0.jpg",
-      "info": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus laudantium modi alias asperiores. Dolore asperiores pariatur commodi nihil voluptas vitae ullam quis tenetur, quam animi aspernatur, iusto ut voluptates nisi."
+      "id": 5,
+      "name": "Shkodra",
+      "image": "https://i2.wp.com/www.shkoder.info/wp-content/uploads/2019/01/img_7679.jpg?resize=1364%2C2048",
+      "info": "Close to the border with Montenegro, Shkodra in Albania is the point of entry for the sublime natural landscapes in almost every direction from the city. East is Drin River that flows through canyons, right to the west is the Adriatic Sea and its sandy beaches, and northeast are the Albanian Alps where the country’s  tallest peaks can be conquered. For history buffs there’s plenty to catch the eye as Shkodra has been on a key trading post for millennia, and both the Ancient Greeks and Romans settled here. Inside Shkodra you can acquaint yourself with Albanian history and culture, visiting mosques, cathedrals, workshops and photographic archives."
     },
     {
-      "id": 4,
-      "name": "Korce",
-      "image": "https://i.pinimg.com/originals/02/de/15/02de15161cabebdcb597d3240265484e.jpg",
-      "info": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus laudantium modi alias asperiores. Dolore asperiores pariatur commodi nihil voluptas vitae ullam quis tenetur, quam animi aspernatur, iusto ut voluptates nisi."
+      "id": 6,
+      "name": "Saranda",
+      "image": "https://cdn.w600.comps.canstockphoto.com/main-city-promenade-in-saranda-albania-stock-image_csp21642164.jpg",
+      "info": "Opposite the Greek island of Corfu, Saranda (Albania) is a quintessential Mediterranean destination, with five months of warm weather and a selection of dreamlike beaches up and down its coast. A typical scene around Saranda is a pebbly bay washed by clear turquoise waters and backed by limestone hills with aromatic scrub and olive trees. You can pick from tourist hotspots with family activities or secluded beaches in natural reserves. And if you need more than lazy days by the sea you can travel to quaint seaside villages, natural landmarks and, best of all, Butrint, a UNESCO-listed archaeological park."
+    },
+    {
+      "id": 7,
+      "name": "Gjirokaster",
+      "image": "https://adriseismic.adrioninterreg.eu/wp-content/uploads/2020/12/Gjirokastra-adriseismic-partner-Albania-3.png",
+      "info": "Gjirokastra is love on the first sight. A UNESCO World Heritage Site, the old town is famous for being a well-preserved city of authentic architecture and its fortress overlooking the entire city, the old houses lean against the slopes of the hills with their beautiful old wooden facades. Being the birthplace of the Nobel-laurate writer Ismail Kadare and also of the notorious communist leader Enver Hoxha, the city is intriguing and controversial as it preserves well all phases of history. There’s plenty to see, not only in this exceptional town, but also in the whole region. "
+    },
+    {
+      "id": 8,
+      "name": "Tepelene",
+      "image": "https://i0.wp.com/www.zgjohushqiptar.info/wp-content/uploads/2020/10/Kalaja_e_Tepelenes.jpg?fit=800%2C450&ssl=1",
+      "info": "Tepelena is a city in southern Albania, next to Gjirokastra, UNESCO site. The city is located at the bay of a hill and is surrounded by three rivers, which create a magnificent landscape. Tepelena bears the name of a famous man in the history of Albania, Ali Pasha Tepelena. It is a small town but with an impressive history. Here are some of the things to see in when you visit Tepelena: the castle of Ali Pashe Tepelena, The History Museum, Dragoti bridge, Cold water of Tepelena, Nivica Canyons, Progonati waterfall, many beautiful villages."
+    },
+    {
+      "id": 9,
+      "name": "Permet",
+      "image": "https://mediaim.expedia.com/localexpert/2052587/d8c85246-c48f-4603-820a-9130d88106c2.jpg?impolicy=resizecrop&rw=1005&rh=565",
+      "info": "Permet is a city in southern Albania, next to Gjirokastra, UNESCO site. It is a city with many names, the city of roses, the city of culinary, the city of saze music. It is surrounded by green forests and mountains. Vjosa river, the last wild river in Europe that flows across the city and villages creates breathtaking views. Here below you will find a list of things to do in Permet: visit Benja thermal baths, Lengarica Canyon, St. Mary’s Church (Village of Leusë), Alipostivan Tekke, Fir of Hotova National Park, Sopot Waterfall, Këlcyra Gorge, many traditional villages."
+    },
+    {
+      "id": 10,
+      "name": "Berat",
+      "image": "https://wander-lush.org/wp-content/uploads/2020/11/Emily-Lush-things-to-do-in-Albania-Berat-Hero.jpg",
+      "info": "This upland city in south-central Albania has 2,500 years of history, which has bestowed it with stunning archaeology, quaint residential areas and preserved monuments. Berat’s appeal lies in its UNESCO World Heritage architecture and the epic mountain scenery that shelters the city. Since coming under the yoke of the Ottoman Empire in the 1400s Berat is also a place where Christians and Muslims have lived together in relative peace, with churches and mosques sharing the same space. The cityscape is part of Berat’s charm, where picturesque stone houses on the steep hillsides seem to be stacked on top of each other."
     }
   ]
-}
+}  
