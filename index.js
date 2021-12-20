@@ -137,7 +137,7 @@ function renderMain() {
 
     const pageNameEl = document.createElement('h2')
     pageNameEl.setAttribute('class', 'logo-header-section')
-    pageNameEl.textContent = 'Visit Albania'
+    pageNameEl.textContent = 'Where To Go'
 
     const whereToGosectionEl = document.createElement('section')
     whereToGosectionEl.setAttribute('class', 'where-to-go-main-section')
@@ -175,6 +175,30 @@ function renderMain() {
 function renderFooter() {
     const footerEl = document.createElement('footer')
 
+    const pageNameEl = document.createElement('h1')
+    pageNameEl.setAttribute('class', 'logo-header-section')
+    pageNameEl.textContent = 'Visit Albania'
+    pageNameEl.addEventListener('click', function() {
+        state.tab = null
+        state.selectedPlace = null
+        render()
+    })
+
+    const rightsSpanEl = document.createElement('span')
+    rightsSpanEl.setAttribute('class', 'rights-footer')
+    rightsSpanEl.textContent = '© 2022 All Rights Reserved - Visit Albania Tourism Agency'
+
+    const iconsDivEl = document.createElement('div')
+
+    const instagramImageEl = document.createElement('img')
+    instagramImageEl.setAttribute('src', 'https://image.similarpng.com/very-thumbnail/2020/05/Popular-Logo-Instagram-icon-PNG.png')
+
+    const facebookImageEl = document.createElement('img')
+    facebookImageEl.setAttribute('src', 'https://i.pinimg.com/originals/c0/5b/41/c05b414d77a20762fede5eeed699605f.png')
+
+    iconsDivEl.append(instagramImageEl, facebookImageEl)
+    footerEl.append(pageNameEl, rightsSpanEl, iconsDivEl)
+    document.body.append(footerEl)
 }
 
 function renderOnePage(places){
@@ -221,5 +245,6 @@ function render() {
         renderWhereToGoMain()
     }
 
+    renderFooter()
 }
 render()
