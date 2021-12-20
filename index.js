@@ -144,7 +144,7 @@ function renderMain() {
 
     let i = 0
     for (const place of state.places) {
-        if (i < 4) {
+        if (i < 5) {
             const placesContainerDivEl = document.createElement('div')
             placesContainerDivEl.setAttribute('class', 'container')
             placesContainerDivEl.addEventListener('click', function () {
