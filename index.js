@@ -131,28 +131,28 @@ function renderMain() {
     let i = 0
     for (const place of state.places) {
         if (i < 4) {
-        const placesContainerDivEl = document.createElement('div')
-        placesContainerDivEl.setAttribute('class', 'container')
-        placesContainerDivEl.addEventListener('click', function() {
-            state.tab = "one-place"
-            state.selectedPlace = place.id
-            render()
-        })
+            const placesContainerDivEl = document.createElement('div')
+            placesContainerDivEl.setAttribute('class', 'container')
+            placesContainerDivEl.addEventListener('click', function () {
+                state.tab = "one-place"
+                state.selectedPlace = place.id
+                render()
+            })
 
-        const placeImageEl = document.createElement('img')
-        placeImageEl.setAttribute('src', place.image)
-        placeImageEl.setAttribute('class', 'place-image-main-section')
-        placeImageEl.setAttribute('alt', 'place-image')
+            const placeImageEl = document.createElement('img')
+            placeImageEl.setAttribute('src', place.image)
+            placeImageEl.setAttribute('class', 'place-image-main-section')
+            placeImageEl.setAttribute('alt', 'place-image')
 
-        const placeNameH3El = document.createElement('h3')
-        placeNameH3El.setAttribute('class', 'place-name-main-section')
-        placeNameH3El.textContent = place.name
+            const placeNameH3El = document.createElement('h3')
+            placeNameH3El.setAttribute('class', 'place-name-main-section')
+            placeNameH3El.textContent = place.name
 
-        placesContainerDivEl.append(placeImageEl, placeNameH3El)
-        whereToGosectionEl.append(placesContainerDivEl)
+            placesContainerDivEl.append(placeImageEl, placeNameH3El)
+            whereToGosectionEl.append(placesContainerDivEl)
 
-        mainEl.append(firstImageEl, pageNameEl, whereToGosectionEl)
-        document.body.append(mainEl)
+            mainEl.append(firstImageEl, pageNameEl, whereToGosectionEl)
+            document.body.append(mainEl)
         }
         i++
     }
@@ -168,7 +168,7 @@ function renderOnePage(places){
     }
 
     const mainEl = document.createElement('main')
-    mainEl.setAttribute('class', 'main-section')
+    mainEl.setAttribute('class', 'one__place-main-section')
 
     const placeImageEl = document.createElement('img')
     placeImageEl.setAttribute('class', 'one-place-image')
@@ -181,8 +181,12 @@ function renderOnePage(places){
     const placeNameEl = document.createElement('h3')
     placeNameEl.setAttribute('class', 'one-name-list-secction')
     placeNameEl.textContent = place.name
+    
+    const placeTextEl = document.createElement("p")
+    placeTextEl.setAttribute("class", "place-text-section")
+    placeTextEl.textContent = place.info
 
-    onePlaceSeccionEl.append(placeNameEl)
+    onePlaceSeccionEl.append(placeNameEl, placeTextEl)
     mainEl.append(placeImageEl, onePlaceSeccionEl)
     document.body.append(mainEl)
 }
@@ -197,6 +201,6 @@ function render() {
     } else if (state.tab === 'where-to-go') {
         renderWhereToGoMain()
     }
-    
+
 }
 render()
