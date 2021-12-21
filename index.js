@@ -223,7 +223,7 @@ function renderOnePage(places){
 
     const placeNameEl = document.createElement('h3')
     placeNameEl.setAttribute('class', 'one-name-list-secction')
-    placeNameEl.textContent = place.name
+    placeNameEl.textContent = place.name.toUpperCase()
     
     const placeTextEl = document.createElement("p")
     placeTextEl.setAttribute("class", "place-text-section")

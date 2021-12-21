@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@500&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -22,10 +24,13 @@ header{
     position: sticky;
     top: 0;
     z-index: 10;
+    font-family: 'Prompt', sans-serif;
 }
 
 .logo-header-section{ 
     color: rgb(13, 48, 13);
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 2px;
 }
 
 header ul{
@@ -72,6 +77,11 @@ header ul{
     font-size: 30px;
     padding-bottom: 1rem;
 }
+
+.place-text-section {
+    line-height: 30px;
+}
+
 .main-section {
     display: grid;
     grid-auto-rows: 0.5fr 0 0.5fr;
