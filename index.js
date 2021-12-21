@@ -2,7 +2,8 @@ const state = {
     places: [],
     todos: [],
     tab: null,
-    selectedPlace: null
+    selectedPlace: null,
+    modal: null
 }
 
 function fetchPlaces() {
@@ -95,16 +96,25 @@ function renderHeader() {
 
     const liSearchButton = document.createElement("li")
     const searchButtonEl = document.createElement("button")
-    searchButtonEl.textContent = "Search"
+    const searchImageEl = document.createElement("img")
+    searchImageEl.setAttribute('src', 'icons/search_black_24dp.svg')
+
+    searchButtonEl.append(searchImageEl)
     liSearchButton.append(searchButtonEl)
 
     const liButtonEl = document.createElement("li")
     const signButtonEl = document.createElement("button")
-    signButtonEl.textContent = "Sign In"
+    const signImageEl = document.createElement("img")
+    signImageEl.setAttribute('src', 'icons/account_circle_black_24dp.svg')
+    signButtonEl.addEventListener('click', function() {
+        state.modal = 'sign-up'
+        render()
+    })
 
+    signButtonEl.append(signImageEl)
     liButtonEl.append(signButtonEl)
     
-    headerButtonEl.append(liButtonEl, liSearchButton)
+    headerButtonEl.append(liSearchButton, liButtonEl)
 
     headerEl.append(pageNameEl, ulHeaderLeft, headerButtonEl)
     document.body.append(headerEl)
@@ -112,6 +122,26 @@ function renderHeader() {
 
 //CREATING SIGN UP FORM 
 function renderSignUp() {
+    const modalWrapperEl = document.createElement('div')
+    modalWrapperEl.setAttribute('class', 'modal-wrapper')
+    modalWrapperEl.addEventListener('click', function () {
+        state.modal = ''
+        render()
+    })
+
+    const modalEl = document.createElement('div')
+    modalEl.setAttribute('class', 'modal')
+    modalEl.addEventListener('click', function (event) {
+        event.stopPropagation()
+    })
+
+    const closeModalBtn = document.createElement('button')
+    closeModalBtn.setAttribute('class', 'modal__close-btn')
+    closeModalBtn.textContent = 'X'
+    closeModalBtn.addEventListener('click', function () {
+        state.modal = ''
+        render()
+    })
 
     const titleEl = document.createElement("h2")
     titleEl.setAttribute("class", "search-title")
@@ -122,6 +152,7 @@ function renderSignUp() {
 
     const firstNameLabelEl = document.createElement("label")
     firstNameLabelEl.setAttribute("for", "user-firstName")
+    firstNameLabelEl.textContent = 'First name'
 
     const firstNameInputEl = document.createElement('input')
     firstNameInputEl.setAttribute('type', 'text')
@@ -161,11 +192,43 @@ function renderSignUp() {
     signUpEl.setAttribute('class', 'signup-link')
     signUpEl.setAttribute('href', '#')
     signUpEl.textContent = 'Sign In'
+    signUpEl.addEventListener('click', function() {
+        state.modal = 'sign-in'
+        render()
+    })
 
-    profileFormEl.append(firstNameLabelEl, firstNameInputEl, lastNameLabelEl, lastNameInputEl, emailLabelEl, emailInputEl, passwordLabelEl, passwordInputEl, buttonEl)
+    profileFormEl.append(firstNameLabelEl, firstNameInputEl, lastNameLabelEl, lastNameInputEl, emailLabelEl, emailInputEl, passwordLabelEl, passwordInputEl, buttonEl, signUpEl)
+    modalEl.append(closeModalBtn, titleEl, profileFormEl, signUpEl)
+    modalWrapperEl.append(modalEl)
+
+    document.body.append(modalWrapperEl)
 }
 //CREATING SIGN IN FORM
 function renderSignIn() {
+    const modalWrapperEl = document.createElement('div')
+    modalWrapperEl.setAttribute('class', 'modal-wrapper')
+    modalWrapperEl.addEventListener('click', function () {
+        state.modal = ''
+        render()
+    })
+
+    const modalEl = document.createElement('div')
+    modalEl.setAttribute('class', 'modal')
+    modalEl.addEventListener('click', function (event) {
+        event.stopPropagation()
+    })
+
+    const closeModalBtn = document.createElement('button')
+    closeModalBtn.setAttribute('class', 'modal__close-btn')
+    closeModalBtn.textContent = 'X'
+    closeModalBtn.addEventListener('click', function () {
+        state.modal = ''
+        render()
+    })
+
+    const titleEl = document.createElement('h2')
+    titleEl.setAttribute('class', 'search-title')
+    titleEl.textContent = 'Sign in'
 
     const profileFormEl = document.createElement("form")
     profileFormEl.setAttribute("class", "profile-form")
@@ -193,6 +256,10 @@ function renderSignIn() {
 
 
     profileFormEl.append(emailLabelEl, emailInputEl, passwordLabelEl, passwordInputEl, signInButtonEl)
+    modalEl.append(closeModalBtn, titleEl, profileFormEl, signInButtonEl)
+    modalWrapperEl.append(modalEl)
+
+    document.body.append(modalWrapperEl)
 }
 
 function renderWhereToGoMain() {
@@ -260,7 +327,6 @@ function renderWhatToDoMain() {
         document.body.append(mainEl)
     }
 }
-
 
 function renderMain() {
     const mainEl = document.createElement('main')
@@ -405,6 +471,14 @@ function renderOnePage(places) {
     document.body.append(mainEl)
 }
 
+function renderModal(){
+    if (state.modal === 'sign-up'){
+        renderSignUp()
+    } else if (state.modal === 'sign-in') {
+        renderSignIn()
+    }
+}
+
 function render() {
     document.body.innerHTML = ''
     renderHeader()
@@ -420,6 +494,7 @@ function render() {
         renderWhatToDoMain()
     } 
 
+    renderModal()
     renderFooter()
 }
 render()

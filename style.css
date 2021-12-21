@@ -141,3 +141,57 @@ footer div img {
     height: 50px;
     z-index: 9;
 }
+
+/* Modals */
+.modal-wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+  
+    background-color: #00000030;
+  
+    backdrop-filter: blur(2px);
+
+    display: grid;
+    place-items: center;
+}
+
+.modal {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 2rem 3rem;
+  
+    position: relative;
+  }
+
+.modal__close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+  
+    background: none;
+    border: none;
+    padding: 0.7rem;
+}
+.search-input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.7rem;
+    border: solid 1px rgb(0, 119, 255);
+    border-radius: 3rem;
+    outline: none;
+}
+
+.profile-form {
+    padding: 1.7rem 0;
+    display: grid;
+    grid-auto-flow: row;
+    gap: 0.3rem;
+}
+
+.signup-link {
+    display: grid;
+    place-items: center;
+}
