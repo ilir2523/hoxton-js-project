@@ -61,66 +61,66 @@
       "info": "This upland city in south-central Albania has 2,500 years of history, which has bestowed it with stunning archaeology, quaint residential areas and preserved monuments. Berat’s appeal lies in its UNESCO World Heritage architecture and the epic mountain scenery that shelters the city. Since coming under the yoke of the Ottoman Empire in the 1400s Berat is also a place where Christians and Muslims have lived together in relative peace, with churches and mosques sharing the same space. The cityscape is part of Berat’s charm, where picturesque stone houses on the steep hillsides seem to be stacked on top of each other."
     }
   ],
-    "todo": [
-   {
-    "id": "1",
-    "name": "Nature and Adventure",
-    "image":"https://podelta.eu/to_s3/p,4,2020,delta_del_po_1591781467,birdwatching_3,d,13,luca_beretta.jpg", 
-    "info": "Birdwatching. Pack the binoculars and bird watch in the coastal wetlands of Karavasta. Part of the Divjake-Karavasta National Park, the lagoon is the westernmost breeding site of the Dalmatian Pelican. For further birdwatching, visit Kune-Vain, Patok , Tale , Narta lagoon , the nature reserve beside the Drini River, home to spotted eagles, spoonbills and herons and also the Lake of Shkodra."
- },
- {
-  "id": "2",
-  "name": "Camping & Astrotourism",
-  "image":"https://thumbs.dreamstime.com/z/albania-camping-albanian-alps-129521269.jpg", 
-  "info": "Albania is a paradise for nature-lovers, especially for campers. There are camping sites across all corners of the country that are affordable and hospitable. These spots also provide amenities and services for those who wish to visit Albania with their own camper vans or want to rent a tent. It is possible to camp in both national parks and along the coast, although camping may be forbidden in some areas so it’s always best to check with the information points provided by the National Agency of Protected Areas or the Municipality of the area you are visiting. At Shebenik-Jabllanicë National Park, near the town of Librazhd and north of Lake Ohrid, Astro-Tourism tours are being offered for the very first time."
-},
-{
-  "id": "3",
-  "name": "Climbing & Speology",
-  "image":"https://i.pinimg.com/originals/49/e7/12/49e7129390ce1048323ce8cfffb8fdc9.jpg", 
-  "info": "The highest peak, Mount Korabi, on the border with Macedonia, towers 2,751 m above sea level. The cliffs of Llogara, Nemercka mountain at the south ,but also a vast range of mountains all over the country are perfect for alpinism or climbing. Other areas suitable for mountain climbing are the Albanian Alps in points such as: Vermosh, Theth, Razëm, Bogë, Valbona, etc. But also Tomori mountain, extending to the districts of Berat and Skrapar at Osum canyons or also Gjipe canyon at the Albanian Riviera. Throughout Albania, intrepid explorers will also find many vast caves just waiting to be discovered. Professional and amateur spelunkers alike will find no shortage of underground chambers to conquer. Near Shkodra there are at least 35 significant caves of a total of 68 designated as National Natural Monuments. An easily accessible cave is the Pëllumbas Cave near Tirana; it is Albania’s second largest. A sign-posted trail leads up to this cave, nestled in the beautiful Skorana Canyon on the Erzen River. Another cave of interest for tourists is Pirrogoshi cave. It is the largest in Albania, located in Skrapar. Other caves are: Kabashi cave (Gramsh) Cave Neziri (Mat), cave of Lek Pete in Kurvelesh, the cave of Treni in Devoll, etc."
-},
-{
-  "id": "4",
-  "name": "Cycling & Mountain Biking",
-  "image":"https://www.zbulo.org/wp-content/uploads/2019/06/180801_lines_balkan_2689-1024x681.jpg", 
-  "info": "Cycling and Mountain Biking For all cycling lovers, Albania is becoming a very good destination to experience natural beauties and unique panoramic views . That exist many type of tours like the Tour of the Albanian Riviera , Unesco Sites , Albanian Alps or just touring around Tirana or other big cities and exloring the nature around. Albania is included in the project of Balkans trail Transdinarica .Also for the Mountain bike lovers The equipment for these sports should be taken with you, as they cannot be rented. Some of the tours are organized in the Albanian Alps, such as Theth, Bogë, Vermosh etc. Another bicycle tour is one which crosses the shores of Lake Shkodër or Tirana sorroundings."
-},
-{
-  "id": "5",
-  "name": "Diving",
-  "image":"https://invest-in-albania.org/wp-content/uploads/The-Magical-Underwater-World-of-Albanian-Caves12__700.jpg", 
-  "info": "Professional diving is a new leisure activity in Albania, evolved over the last decade. Despite this, Albania’s rich coastline provides unique opportunities for divers, who can explore everything from the diverse fauna of the Mediterranean across two different seas, and even various sunken ships. For those wishing to dive into the Adriatic Sea, underwater sports centers are available north of Vlorë. Diving is particularly popular for the Ionian stretch of the Albanian coast, with numerous centers being available from Vlorë to Saranda. For the Adriatic, divers can practice the sport in Vlorë Bay and the Cape of Rodon. For the Ionian Coast, divers have their pick between the area north of Saranda, in Dhërmi, Jal, and Cape of Lagji, among others.   In the last years alone, joint Albanian-American expeditions have been crucial in discovering old and drowned ships in the area, some of which reach a depth of 33 m and a length of 150 m. Vlorë Bay ‘hides’ many such treasures, being home to several sunken ships of considerable antiquity. However, the most famous and popular sunken ship discovered in Albanian waters, is the Italian hospital ship “PO”, which sank in March 1941, after being shot by “Swordfish,” a British airplane. A sunken ship back to century III or IV B.C.E was discovered north of Saranda Bay and is considered one of the best-preserved relics in the Mediterranean. Some large amphoras were also found around there. Beyond these historical objects, divers can also observe the beautiful underwater scenery created by green and black algae and corals, among others."
-},
-{
-  "id": "6",
-  "name": "Paragliding",
-  "image":"https://skysports.al/wp-content/uploads/2021/05/Llogara-Skysport-Paragliding.jpg", 
-  "info": "Paragliding, as an aeronautical sport, dates in 1990. And Albania’s topographic conditions and nature offer many opportunities to practice paragliding and related sports. The most popular and best spot for paragliding are the slopes of Llogora, in southern Albania, given the favorable direction of the wind. Llogara is also popular among international practitioners of the sport and is used by paratroopers as a meeting spot. Besides Llogara Mountain, paratroopers can also practice paragliding in Morava, near Korçë, Mount Dajti in Tirana, and Tarabosh Mount in Shkodra."
-},
-{
-  "id": "7",
-  "name": "Rafting & Kayaking",
-  "image":"https://images.rove.me/w_1920,q_85/ernn2vt9gad744lkafun/albania-rafting.jpg", 
-  "info": "Albania is marked by numerous valleys that are home to magnificent rivers and streams, making them perfect for water sports, including rafting or kayaking. For rafting, the upper valleys of Osum are particularly suitable, the route including a trek along the superb, 17 km-long canyons of Osum. Another available flipside is exploring the Vjosa River and Devoll Valley in the south, the Valbona and Shala Valleys in the Albanian Alps and Komani Lake in the North, the Tujanit Scale in the Tirana River, near the capital, at the mouth of Mat River, as well as the Albanian Riviera (for canoeing)."
-},
-{
-  "id": "8",
-  "name": "Rally & Racing",
-  "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRaOXUo8X5mwzxMK6OdEz0CdGQIE90MZ4ung&usqp=CAU", 
-  "info": "Hundreds of extreme sports enthusiasts discover Albania through Rally Albania Hundreds of extreme sports enthusiasts discover Albania through Rally Albania or alike racing events. In Albania, they get to share their passion with participants from around the world and test their limits while exploring the country’s rugged north and paradise-like south. If you have a car or vehicle that qualifies for one of these races, don’t hesitate to discover all of Albania like few have had the opportunity to see it. Through rally and racing, you will get to wade into the unexplored corners of Albanian in its natural beauty. Due to the diversity of its landscapes, there are those who call Albania “the Disneyland of the off-road vehicles!"
-},
-{
-  "id": "9",
-  "name": "Set & Sail",
-  "image":"https://secretescapes-web.imgix.net/sales/45666/e14ff06b_2a7f_45af_a131_2fd8b0660f34.jpg?w=535&h=372&fit=crop&crop=entropy&auto=format,compress", 
-  "info": "Albania has several ports of entry, with Durres, Vlorë, Saranda, Shengjin and Himarë being the main ones. These commercial ports also have a few facilities for visiting yachts. A new marina in Orikum, near Vlorë, offers some facilities for yachts, while more marinas are planned for the two biggest harbors of Durres and Vlorë. Small boats can anchor at various minor ports, including in Durrës (Karpen), Radhimë (Vlorë), Port Palermo, Jal, Bunec, and Ksamil, in the Albanian Riviera. If you have a boat available, we suggest that you visit the entirety of the Albanian coastline for a full and diverse experience of what Albania has to offer. For those who wish to explore Albania by boat, pick among various cruisers that offer tours of Albania’s water attractions. We also recommend to take the ferry to “Koman Lake” to immerse yourself among the vertiginous views offered by the High Mountains of northern Albania. The jaded waters of the lake are surrounded by rugged and verdant towering cliffs, and this peaceful cruise is the perfect opportunity for a few hours of tranquility, or for exploring Albania’s rich wildlife. Birders should look out for pygmy cormorants, herons, and golden eagles."
-},
-{
-  "id": "10",
-  "name": "Horse Riding",
-  "image":"https://photos.tpn.to/jh/sr/ti/ko/299x225.jpg", 
-  "info": "Horse riding is practiced mainly in districts that have high quality horse-breeding centers, such as in Shkodër, Durrës, Tiranë, Elbasan (Cërrik), Korçë, Divjakë, Berat, Vlorë, Fusha e Pelave at Lura, Shishtavec in Kukës, Zagoria area, Vjosa, Drinos valley nearby Gjirokastër etc. The geographic range of this sport is very interesting, as the nature in each of the above spots is combined with certain natural, historical and traditional elements. For horse riding enthusiasts in the capital, there are centers that offer horse riding, such as Mullet, Pezë etj."
-}
+  "todo": [
+    {
+      "id": "1",
+      "name": "Nature and Adventure",
+      "image": "https://podelta.eu/to_s3/p,4,2020,delta_del_po_1591781467,birdwatching_3,d,13,luca_beretta.jpg",
+      "info": "Birdwatching. Pack the binoculars and bird watch in the coastal wetlands of Karavasta. Part of the Divjake-Karavasta National Park, the lagoon is the westernmost breeding site of the Dalmatian Pelican. For further birdwatching, visit Kune-Vain, Patok , Tale , Narta lagoon , the nature reserve beside the Drini River, home to spotted eagles, spoonbills and herons and also the Lake of Shkodra."
+    },
+    {
+      "id": "2",
+      "name": "Camping & Astrotourism",
+      "image": "https://thumbs.dreamstime.com/z/albania-camping-albanian-alps-129521269.jpg",
+      "info": "Albania is a paradise for nature-lovers, especially for campers. There are camping sites across all corners of the country that are affordable and hospitable. These spots also provide amenities and services for those who wish to visit Albania with their own camper vans or want to rent a tent. It is possible to camp in both national parks and along the coast, although camping may be forbidden in some areas so it’s always best to check with the information points provided by the National Agency of Protected Areas or the Municipality of the area you are visiting. At Shebenik-Jabllanicë National Park, near the town of Librazhd and north of Lake Ohrid, Astro-Tourism tours are being offered for the very first time."
+    },
+    {
+      "id": "3",
+      "name": "Climbing & Speology",
+      "image": "https://i.pinimg.com/originals/49/e7/12/49e7129390ce1048323ce8cfffb8fdc9.jpg",
+      "info": "The highest peak, Mount Korabi, on the border with Macedonia, towers 2,751 m above sea level. The cliffs of Llogara, Nemercka mountain at the south ,but also a vast range of mountains all over the country are perfect for alpinism or climbing. Other areas suitable for mountain climbing are the Albanian Alps in points such as: Vermosh, Theth, Razëm, Bogë, Valbona, etc. But also Tomori mountain, extending to the districts of Berat and Skrapar at Osum canyons or also Gjipe canyon at the Albanian Riviera. Throughout Albania, intrepid explorers will also find many vast caves just waiting to be discovered. Professional and amateur spelunkers alike will find no shortage of underground chambers to conquer. Near Shkodra there are at least 35 significant caves of a total of 68 designated as National Natural Monuments. An easily accessible cave is the Pëllumbas Cave near Tirana; it is Albania’s second largest. A sign-posted trail leads up to this cave, nestled in the beautiful Skorana Canyon on the Erzen River. Another cave of interest for tourists is Pirrogoshi cave. It is the largest in Albania, located in Skrapar. Other caves are: Kabashi cave (Gramsh) Cave Neziri (Mat), cave of Lek Pete in Kurvelesh, the cave of Treni in Devoll, etc."
+    },
+    {
+      "id": "4",
+      "name": "Cycling & Mountain Biking",
+      "image": "https://www.zbulo.org/wp-content/uploads/2019/06/180801_lines_balkan_2689-1024x681.jpg",
+      "info": "Cycling and Mountain Biking For all cycling lovers, Albania is becoming a very good destination to experience natural beauties and unique panoramic views . That exist many type of tours like the Tour of the Albanian Riviera , Unesco Sites , Albanian Alps or just touring around Tirana or other big cities and exloring the nature around. Albania is included in the project of Balkans trail Transdinarica .Also for the Mountain bike lovers The equipment for these sports should be taken with you, as they cannot be rented. Some of the tours are organized in the Albanian Alps, such as Theth, Bogë, Vermosh etc. Another bicycle tour is one which crosses the shores of Lake Shkodër or Tirana sorroundings."
+    },
+    {
+      "id": "5",
+      "name": "Diving",
+      "image": "https://invest-in-albania.org/wp-content/uploads/The-Magical-Underwater-World-of-Albanian-Caves12__700.jpg",
+      "info": "Professional diving is a new leisure activity in Albania, evolved over the last decade. Despite this, Albania’s rich coastline provides unique opportunities for divers, who can explore everything from the diverse fauna of the Mediterranean across two different seas, and even various sunken ships. For those wishing to dive into the Adriatic Sea, underwater sports centers are available north of Vlorë. Diving is particularly popular for the Ionian stretch of the Albanian coast, with numerous centers being available from Vlorë to Saranda. For the Adriatic, divers can practice the sport in Vlorë Bay and the Cape of Rodon. For the Ionian Coast, divers have their pick between the area north of Saranda, in Dhërmi, Jal, and Cape of Lagji, among others.   In the last years alone, joint Albanian-American expeditions have been crucial in discovering old and drowned ships in the area, some of which reach a depth of 33 m and a length of 150 m. Vlorë Bay ‘hides’ many such treasures, being home to several sunken ships of considerable antiquity. However, the most famous and popular sunken ship discovered in Albanian waters, is the Italian hospital ship “PO”, which sank in March 1941, after being shot by “Swordfish,” a British airplane. A sunken ship back to century III or IV B.C.E was discovered north of Saranda Bay and is considered one of the best-preserved relics in the Mediterranean. Some large amphoras were also found around there. Beyond these historical objects, divers can also observe the beautiful underwater scenery created by green and black algae and corals, among others."
+    },
+    {
+      "id": "6",
+      "name": "Paragliding",
+      "image": "https://skysports.al/wp-content/uploads/2021/05/Llogara-Skysport-Paragliding.jpg",
+      "info": "Paragliding, as an aeronautical sport, dates in 1990. And Albania’s topographic conditions and nature offer many opportunities to practice paragliding and related sports. The most popular and best spot for paragliding are the slopes of Llogora, in southern Albania, given the favorable direction of the wind. Llogara is also popular among international practitioners of the sport and is used by paratroopers as a meeting spot. Besides Llogara Mountain, paratroopers can also practice paragliding in Morava, near Korçë, Mount Dajti in Tirana, and Tarabosh Mount in Shkodra."
+    },
+    {
+      "id": "7",
+      "name": "Rafting & Kayaking",
+      "image": "https://images.rove.me/w_1920,q_85/ernn2vt9gad744lkafun/albania-rafting.jpg",
+      "info": "Albania is marked by numerous valleys that are home to magnificent rivers and streams, making them perfect for water sports, including rafting or kayaking. For rafting, the upper valleys of Osum are particularly suitable, the route including a trek along the superb, 17 km-long canyons of Osum. Another available flipside is exploring the Vjosa River and Devoll Valley in the south, the Valbona and Shala Valleys in the Albanian Alps and Komani Lake in the North, the Tujanit Scale in the Tirana River, near the capital, at the mouth of Mat River, as well as the Albanian Riviera (for canoeing)."
+    },
+    {
+      "id": "8",
+      "name": "Rally & Racing",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRaOXUo8X5mwzxMK6OdEz0CdGQIE90MZ4ung&usqp=CAU",
+      "info": "Hundreds of extreme sports enthusiasts discover Albania through Rally Albania Hundreds of extreme sports enthusiasts discover Albania through Rally Albania or alike racing events. In Albania, they get to share their passion with participants from around the world and test their limits while exploring the country’s rugged north and paradise-like south. If you have a car or vehicle that qualifies for one of these races, don’t hesitate to discover all of Albania like few have had the opportunity to see it. Through rally and racing, you will get to wade into the unexplored corners of Albanian in its natural beauty. Due to the diversity of its landscapes, there are those who call Albania “the Disneyland of the off-road vehicles!"
+    },
+    {
+      "id": "9",
+      "name": "Set & Sail",
+      "image": "https://secretescapes-web.imgix.net/sales/45666/e14ff06b_2a7f_45af_a131_2fd8b0660f34.jpg?w=535&h=372&fit=crop&crop=entropy&auto=format,compress",
+      "info": "Albania has several ports of entry, with Durres, Vlorë, Saranda, Shengjin and Himarë being the main ones. These commercial ports also have a few facilities for visiting yachts. A new marina in Orikum, near Vlorë, offers some facilities for yachts, while more marinas are planned for the two biggest harbors of Durres and Vlorë. Small boats can anchor at various minor ports, including in Durrës (Karpen), Radhimë (Vlorë), Port Palermo, Jal, Bunec, and Ksamil, in the Albanian Riviera. If you have a boat available, we suggest that you visit the entirety of the Albanian coastline for a full and diverse experience of what Albania has to offer. For those who wish to explore Albania by boat, pick among various cruisers that offer tours of Albania’s water attractions. We also recommend to take the ferry to “Koman Lake” to immerse yourself among the vertiginous views offered by the High Mountains of northern Albania. The jaded waters of the lake are surrounded by rugged and verdant towering cliffs, and this peaceful cruise is the perfect opportunity for a few hours of tranquility, or for exploring Albania’s rich wildlife. Birders should look out for pygmy cormorants, herons, and golden eagles."
+    },
+    {
+      "id": "10",
+      "name": "Horse Riding",
+      "image": "https://photos.tpn.to/jh/sr/ti/ko/299x225.jpg",
+      "info": "Horse riding is practiced mainly in districts that have high quality horse-breeding centers, such as in Shkodër, Durrës, Tiranë, Elbasan (Cërrik), Korçë, Divjakë, Berat, Vlorë, Fusha e Pelave at Lura, Shishtavec in Kukës, Zagoria area, Vjosa, Drinos valley nearby Gjirokastër etc. The geographic range of this sport is very interesting, as the nature in each of the above spots is combined with certain natural, historical and traditional elements. For horse riding enthusiasts in the capital, there are centers that offer horse riding, such as Mullet, Pezë etj."
+    }
   ]
 }

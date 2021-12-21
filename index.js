@@ -160,7 +160,7 @@ function renderMain() {
 
             const placeNameH3El = document.createElement('h3')
             placeNameH3El.setAttribute('class', 'place-name-main-section')
-            placeNameH3El.textContent = place.name
+            placeNameH3El.textContent = place.name.toUpperCase()
 
             placesContainerDivEl.append(placeImageEl, placeNameH3El)
             whereToGosectionEl.append(placesContainerDivEl)
