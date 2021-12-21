@@ -144,7 +144,7 @@ footer div img {
 
 .contact-main-section{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.5fr 0.5fr;
     height: 100vh;
     place-items: center;
 }
@@ -159,4 +159,5 @@ footer div img {
     display: grid;
     grid-auto-flow: row;
     place-items: center start;
+    width: 70vh;
 }

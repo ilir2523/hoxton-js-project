@@ -338,7 +338,7 @@ function renderContactPage() {
 
     const companyDirectorNameSpanEl = document.createElement('span')
     companyDirectorNameSpanEl.setAttribute('class', 'text-contact-section')
-    companyDirectorNameSpanEl.textContent = 'Visit Albania Tourism Agency Director: Artiola'
+    companyDirectorNameSpanEl.textContent = 'Visit Albania Tourism Agency Director: Artiola Caka'
 
     const companyPhoneNumberSpanEl = document.createElement('span')
     companyPhoneNumberSpanEl.setAttribute('class', 'text-contact-section')
@@ -360,22 +360,14 @@ function renderContactPage() {
         <label for="fname">First Name</label>
         <input type="text" id="fname" name="firstname" placeholder="Your name..">
     
-        <label for="lname">Last Name</label>
-        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-    
-        <label for="country">Country</label>
-        <select id="country" name="country">
-          <option value="australia">Australia</option>
-          <option value="canada">Canada</option>
-          <option value="usa">USA</option>
-        </select>
+        <label for="lname">Email</label>
+        <input type="email" id="lname" name="email" placeholder="Email..">
     
         <label for="subject">Subject</label>
-        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+        <textarea id="subject" name="subject" placeholder="Write something.."></textarea>
     
         <input type="submit" value="Submit">
         `
-
 
     mainEl.append(infoSectionEl, formSectionEl)
     document.body.append(mainEl)
