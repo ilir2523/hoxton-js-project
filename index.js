@@ -1,11 +1,16 @@
 const state = {
     places: [],
+    todos: [],
     tab: null,
     selectedPlace: null
 }
 
 function fetchPlaces() {
     return fetch("http://localhost:3000/cities").then(resp => resp.json())
+}
+
+function fetchTodos() {
+    return fetch("http://localhost:3000/todo").then(resp => resp.json())
 }
 
 function getCitiesFromServerToPlaces() {
@@ -15,7 +20,15 @@ function getCitiesFromServerToPlaces() {
     })
 }
 
+function getTodosFromServerToTodos() {
+    return fetchTodos().then(function (todo) {
+        state.todos = todo
+        render()
+    })
+}
+
 getCitiesFromServerToPlaces()
+getTodosFromServerToTodos()
 
 function renderHeader() {
     const headerEl = document.createElement('header')
@@ -60,6 +73,11 @@ function renderHeader() {
     const whatToDoLink = document.createElement("a")
     whatToDoLink.setAttribute("href", "#")
     whatToDoLink.textContent = "What To Do"
+    whatToDoLink.addEventListener('click', function(){
+        state.tab = 'what-to-do'
+        state.selectedPlace = null
+        render()
+    })
     whatToDoEl.append(whatToDoLink)
 
     const contactLiEl = document.createElement("li")
@@ -210,6 +228,40 @@ function renderWhereToGoMain() {
     }
 }
 
+function renderWhatToDoMain() {
+    const mainEl = document.createElement('main')
+    mainEl.setAttribute('class', 'main-section')
+
+    const whereToGosectionEl = document.createElement('section')
+    whereToGosectionEl.setAttribute('class', 'where-to-go-main-section')
+
+    for (const todo of state.todos) {
+        const placesContainerDivEl = document.createElement('div')
+        placesContainerDivEl.setAttribute('class', 'container')
+        placesContainerDivEl.addEventListener('click', function() {
+            state.tab = "one-todo"
+            state.selectedPlace = todo.id
+            render()
+        })
+
+        const placeImageEl = document.createElement('img')
+        placeImageEl.setAttribute('src', todo.image)
+        placeImageEl.setAttribute('class', 'place-image-main-section')
+        placeImageEl.setAttribute('alt', 'place-image')
+
+        const placeNameH3El = document.createElement('h3')
+        placeNameH3El.setAttribute('class', 'place-name-main-section')
+        placeNameH3El.textContent = todo.name
+
+        placesContainerDivEl.append(placeImageEl, placeNameH3El)
+        whereToGosectionEl.append(placesContainerDivEl)
+
+        mainEl.append(whereToGosectionEl)
+        document.body.append(mainEl)
+    }
+}
+
+
 function renderMain() {
     const mainEl = document.createElement('main')
     mainEl.setAttribute('class', 'main-section')
@@ -244,16 +296,51 @@ function renderMain() {
 
             const placeNameH3El = document.createElement('h3')
             placeNameH3El.setAttribute('class', 'place-name-main-section')
-            placeNameH3El.textContent = place.name
+            placeNameH3El.textContent = place.name.toUpperCase()
 
             placesContainerDivEl.append(placeImageEl, placeNameH3El)
             whereToGosectionEl.append(placesContainerDivEl)
-
-            mainEl.append(firstImageEl, pageNameEl, whereToGosectionEl)
-            document.body.append(mainEl)
         }
         i++
     }
+
+    const whatToDoPageNameEl = document.createElement('h2')
+    whatToDoPageNameEl.setAttribute('class', 'logo-header-section')
+    whatToDoPageNameEl.textContent = 'What To Do'
+
+    const whatToDoSectionEl = document.createElement('section')
+    whatToDoSectionEl.setAttribute('class', 'where-to-go-main-section')
+
+    let j = 0
+    for (const todo of state.todos) {
+        if (j < 5) {
+            const placesContainerDivEl = document.createElement('div')
+            placesContainerDivEl.setAttribute('class', 'container')
+            placesContainerDivEl.addEventListener('click', function () {
+                state.tab = "one-todo"
+                state.selectedPlace = todo.id
+                render()
+            })
+
+            const placeImageEl = document.createElement('img')
+            placeImageEl.setAttribute('src', todo.image)
+            placeImageEl.setAttribute('class', 'place-image-main-section')
+            placeImageEl.setAttribute('alt', 'place-image')
+
+            const placeNameH3El = document.createElement('h3')
+            placeNameH3El.setAttribute('class', 'place-name-main-section')
+            placeNameH3El.textContent = todo.name.toUpperCase()
+
+            placesContainerDivEl.append(placeImageEl, placeNameH3El)
+            whatToDoSectionEl.append(placesContainerDivEl)
+
+        }
+        j++
+    }
+
+    mainEl.append(firstImageEl, pageNameEl, whereToGosectionEl, whatToDoPageNameEl, whatToDoSectionEl)
+    document.body.append(mainEl)
+
 }
 
 function renderFooter() {
@@ -307,8 +394,8 @@ function renderOnePage(places) {
 
     const placeNameEl = document.createElement('h3')
     placeNameEl.setAttribute('class', 'one-name-list-secction')
-    placeNameEl.textContent = place.name
-
+    placeNameEl.textContent = place.name.toUpperCase()
+    
     const placeTextEl = document.createElement("p")
     placeTextEl.setAttribute("class", "place-text-section")
     placeTextEl.textContent = place.info
@@ -327,7 +414,11 @@ function render() {
         renderOnePage(state.places)
     } else if (state.tab === 'where-to-go') {
         renderWhereToGoMain()
-    }
+    } else if (state.tab === 'one-todo') {
+        renderOnePage(state.todos)
+    } else if (state.tab === 'what-to-do') {
+        renderWhatToDoMain()
+    } 
 
     renderFooter()
 }
