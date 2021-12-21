@@ -24,7 +24,7 @@ function renderHeader() {
     const pageNameEl = document.createElement('h1')
     pageNameEl.setAttribute('class', 'logo-header-section')
     pageNameEl.textContent = 'Visit Albania'
-    pageNameEl.addEventListener('click', function() {
+    pageNameEl.addEventListener('click', function () {
         state.tab = null
         state.selectedPlace = null
         render()
@@ -37,7 +37,7 @@ function renderHeader() {
     const aHomeEl = document.createElement("a")
     aHomeEl.setAttribute("href", "#")
     aHomeEl.textContent = "Home"
-    homeLiEl.addEventListener('click', function() {
+    homeLiEl.addEventListener('click', function () {
         state.tab = null
         state.selectedPlace = null
         render()
@@ -48,7 +48,7 @@ function renderHeader() {
     const whereToGoLink = document.createElement("a")
     whereToGoLink.setAttribute("href", "#")
     whereToGoLink.textContent = "Where To Go"
-    whereToGoLink.addEventListener('click', function(){
+    whereToGoLink.addEventListener('click', function () {
         state.tab = 'where-to-go'
         state.selectedPlace = null
         render()
@@ -78,19 +78,115 @@ function renderHeader() {
     const liButtonEl = document.createElement("li")
     const signButtonEl = document.createElement("button")
     signButtonEl.textContent = "Sign In"
-
+    
     liButtonEl.append(signButtonEl)
-
+    //CREATING SIGN IN FORM
+function renderSignIn (){
+    
+    const profileFormEl = document.createElement("form")
+    profileFormEl.setAttribute("class", "profile-form")
+    
+    const emailLabelEl = document.createElement("label")
+    emailLabelEl.setAttribute("for", "user-email")
+    emailLabelEl.textContent = "Email"
+    
+    const emailInputEl = document.createElement("input")
+    emailInputEl.setAttribute("type", "email")
+    emailInputEl.setAttribute("id", "user-email")
+    
+    const passwordLabelEl = document.createElement("label")
+    passwordLabelEl.setAttribute("for", "user-password")
+    passwordLabelEl.textContent = "Password"
+    
+    const passwordInputEl = document.createElement("input")
+    passwordInputEl.setAttribute("type", "password")
+    passwordInputEl.setAttribute("id", "user-password")
+    
+    const signInButtonEl = document.createElement("button")
+    signInButtonEl.setAttribute("class", "signin-button")
+    signInButtonEl.setAttribute("type", "submit")
+    signInButtonEl.textContent = "Sign In"
+    
+    
+    profileFormEl.append(emailLabelEl, emailInputEl, passwordLabelEl, passwordInputEl)
+    
+    
+    
+    
+    
+}
+    
     const liSearchButton = document.createElement("li")
     const searchButtonEl = document.createElement("button")
     searchButtonEl.textContent = "Search"
-
+    
     liSearchButton.append(searchButtonEl)
 
     headerButtonEl.append(liButtonEl, liSearchButton)
 
     headerEl.append(pageNameEl, ulHeaderLeft, headerButtonEl)
     document.body.append(headerEl)
+}
+//CREATING SIGN UP FORM 
+function renderSignUp (){
+
+    const titleEl = document.createElement("h2")
+    titleEl.setAttribute("class", "search-title")
+    titleEl.textContent = "Sign Up"
+    
+    const profileFormEl = document.createElement("form")
+    profileFormEl.setAttribute("class", "profile-form")
+    
+    const firstNameLabelEl = document.createElement("label")
+    firstNameLabelEl.setAttribute("for", "user-firstName")
+    
+    const firstNameInputEl = document.createElement('input')
+    firstNameInputEl.setAttribute('type', 'text')
+    firstNameInputEl.setAttribute('id', 'user-firstName')
+    
+    const lastNameLabelEl = document.createElement('label')
+    lastNameLabelEl.setAttribute('for', 'user-lastName')
+    lastNameLabelEl.textContent = 'Last name'
+    
+    const lastNameInputEl = document.createElement('input')
+    lastNameInputEl.setAttribute('type', 'text')
+    lastNameInputEl.setAttribute('id', 'user-lastName')
+    
+    const emailLabelEl = document.createElement('label')
+    emailLabelEl.setAttribute('for', 'user-email')
+    emailLabelEl.textContent = 'Email'
+    
+    const emailInputEl = document.createElement('input')
+    emailInputEl.setAttribute('type', 'email')
+    emailInputEl.setAttribute('id', 'user-email')
+    
+    
+    const passwordLabelEl = document.createElement('label')
+    passwordLabelEl.setAttribute('for', 'user-password')
+    passwordLabelEl.textContent = 'Password'
+    
+    const passwordInputEl = document.createElement('input')
+    passwordInputEl.setAttribute('type', 'password')
+    passwordInputEl.setAttribute('id', 'user-password')
+    
+    const buttonEl = document.createElement('button')
+    buttonEl.setAttribute('class', 'signin-button')
+    buttonEl.setAttribute('type', 'submit')
+    buttonEl.textContent = 'Sign Up'
+    
+    const signUpEl = document.createElement('a')
+    signUpEl.setAttribute('class', 'signup-link')
+    signUpEl.setAttribute('href', '#')
+    signUpEl.textContent = 'Sign In'
+    
+    profileFormEl.append(firstNameLabelEl, firstNameInputEl,lastNameLabelEl, lastNameInputEl, emailLabelEl, emailInputEl, passwordLabelEl, passwordInputEl, buttonEl)
+    
+    
+    
+    
+    
+   
+    
 }
 
 function renderWhereToGoMain() {
@@ -103,7 +199,7 @@ function renderWhereToGoMain() {
     for (const place of state.places) {
         const placesContainerDivEl = document.createElement('div')
         placesContainerDivEl.setAttribute('class', 'container')
-        placesContainerDivEl.addEventListener('click', function() {
+        placesContainerDivEl.addEventListener('click', function () {
             state.tab = "one-place"
             state.selectedPlace = place.id
             render()
@@ -178,7 +274,7 @@ function renderFooter() {
     const pageNameEl = document.createElement('h1')
     pageNameEl.setAttribute('class', 'logo-header-section')
     pageNameEl.textContent = 'Visit Albania'
-    pageNameEl.addEventListener('click', function() {
+    pageNameEl.addEventListener('click', function () {
         state.tab = null
         state.selectedPlace = null
         render()
@@ -201,7 +297,7 @@ function renderFooter() {
     document.body.append(footerEl)
 }
 
-function renderOnePage(places){
+function renderOnePage(places) {
 
     let place = null
     for (const myPlace of places) {
@@ -224,7 +320,7 @@ function renderOnePage(places){
     const placeNameEl = document.createElement('h3')
     placeNameEl.setAttribute('class', 'one-name-list-secction')
     placeNameEl.textContent = place.name
-    
+
     const placeTextEl = document.createElement("p")
     placeTextEl.setAttribute("class", "place-text-section")
     placeTextEl.textContent = place.info
@@ -237,8 +333,8 @@ function renderOnePage(places){
 function render() {
     document.body.innerHTML = ''
     renderHeader()
-    if(state.tab === null){
-        renderMain() 
+    if (state.tab === null) {
+        renderMain()
     } else if (state.tab === 'one-place') {
         renderOnePage(state.places)
     } else if (state.tab === 'where-to-go') {
