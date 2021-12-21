@@ -141,3 +141,22 @@ footer div img {
     height: 50px;
     z-index: 9;
 }
+
+.contact-main-section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    place-items: center;
+}
+
+.info-contact-section {
+    display: grid;
+    grid-auto-flow: row;
+    place-items: center end;
+}
+
+.form-contact-section{
+    display: grid;
+    grid-auto-flow: row;
+    place-items: center start;
+}

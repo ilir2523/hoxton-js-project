@@ -37,7 +37,7 @@ function renderHeader() {
     const pageNameEl = document.createElement('h1')
     pageNameEl.setAttribute('class', 'logo-header-section')
     pageNameEl.textContent = 'Visit Albania'
-    pageNameEl.addEventListener('click', function() {
+    pageNameEl.addEventListener('click', function () {
         state.tab = null
         state.selectedPlace = null
         render()
@@ -50,7 +50,7 @@ function renderHeader() {
     const aHomeEl = document.createElement("a")
     aHomeEl.setAttribute("href", "#")
     aHomeEl.textContent = "Home"
-    homeLiEl.addEventListener('click', function() {
+    homeLiEl.addEventListener('click', function () {
         state.tab = null
         state.selectedPlace = null
         render()
@@ -61,7 +61,7 @@ function renderHeader() {
     const whereToGoLink = document.createElement("a")
     whereToGoLink.setAttribute("href", "#")
     whereToGoLink.textContent = "Where To Go"
-    whereToGoLink.addEventListener('click', function(){
+    whereToGoLink.addEventListener('click', function () {
         state.tab = 'where-to-go'
         state.selectedPlace = null
         render()
@@ -73,7 +73,7 @@ function renderHeader() {
     const whatToDoLink = document.createElement("a")
     whatToDoLink.setAttribute("href", "#")
     whatToDoLink.textContent = "What To Do"
-    whatToDoLink.addEventListener('click', function(){
+    whatToDoLink.addEventListener('click', function () {
         state.tab = 'what-to-do'
         state.selectedPlace = null
         render()
@@ -121,7 +121,7 @@ function renderWhereToGoMain() {
     for (const place of state.places) {
         const placesContainerDivEl = document.createElement('div')
         placesContainerDivEl.setAttribute('class', 'container')
-        placesContainerDivEl.addEventListener('click', function() {
+        placesContainerDivEl.addEventListener('click', function () {
             state.tab = "one-place"
             state.selectedPlace = place.id
             render()
@@ -154,7 +154,7 @@ function renderWhatToDoMain() {
     for (const todo of state.todos) {
         const placesContainerDivEl = document.createElement('div')
         placesContainerDivEl.setAttribute('class', 'container')
-        placesContainerDivEl.addEventListener('click', function() {
+        placesContainerDivEl.addEventListener('click', function () {
             state.tab = "one-todo"
             state.selectedPlace = todo.id
             render()
@@ -265,7 +265,7 @@ function renderFooter() {
     const pageNameEl = document.createElement('h1')
     pageNameEl.setAttribute('class', 'logo-header-section')
     pageNameEl.textContent = 'Visit Albania'
-    pageNameEl.addEventListener('click', function() {
+    pageNameEl.addEventListener('click', function () {
         state.tab = null
         state.selectedPlace = null
         render()
@@ -288,7 +288,7 @@ function renderFooter() {
     document.body.append(footerEl)
 }
 
-function renderOnePage(places){
+function renderOnePage(places) {
 
     let place = null
     for (const myPlace of places) {
@@ -311,7 +311,7 @@ function renderOnePage(places){
     const placeNameEl = document.createElement('h3')
     placeNameEl.setAttribute('class', 'one-name-list-secction')
     placeNameEl.textContent = place.name.toUpperCase()
-    
+
     const placeTextEl = document.createElement("p")
     placeTextEl.setAttribute("class", "place-text-section")
     placeTextEl.textContent = place.info
@@ -321,11 +321,73 @@ function renderOnePage(places){
     document.body.append(mainEl)
 }
 
+function renderContactPage() {
+    const mainEl = document.createElement('main')
+    mainEl.setAttribute('class', 'contact-main-section')
+
+    const infoSectionEl = document.createElement('section')
+    infoSectionEl.setAttribute('class', 'info-contact-section')
+
+    const greetingH2El = document.createElement('h2')
+    greetingH2El.setAttribute('class', 'greeting-contact-section')
+    greetingH2El.textContent = 'Feel Free to Contact us For Help or Additional Info'
+
+    const companyNameSpanEl = document.createElement('span')
+    companyNameSpanEl.setAttribute('class', 'text-contact-section')
+    companyNameSpanEl.textContent = 'Visit Albania Tourism Agency'
+
+    const companyDirectorNameSpanEl = document.createElement('span')
+    companyDirectorNameSpanEl.setAttribute('class', 'text-contact-section')
+    companyDirectorNameSpanEl.textContent = 'Visit Albania Tourism Agency Director: Artiola'
+
+    const companyPhoneNumberSpanEl = document.createElement('span')
+    companyPhoneNumberSpanEl.setAttribute('class', 'text-contact-section')
+    companyPhoneNumberSpanEl.textContent = 'Tel: +355 (04) 123 45 67'
+
+    const companyEmailSpanEl = document.createElement('span')
+    companyEmailSpanEl.setAttribute('class', 'text-contact-section')
+    companyEmailSpanEl.textContent = 'Email: info@visitalbania.com.al'
+
+    const companyAdressSpanEl = document.createElement('span')
+    companyAdressSpanEl.setAttribute('class', 'text-contact-section')
+    companyAdressSpanEl.textContent = 'Tirana, Albania'
+
+    infoSectionEl.append(greetingH2El, companyNameSpanEl, companyDirectorNameSpanEl, companyPhoneNumberSpanEl, companyEmailSpanEl, companyAdressSpanEl)
+
+    const formSectionEl = document.createElement('form')
+    formSectionEl.setAttribute('class', 'form-contact-section')
+    formSectionEl.innerHTML = `
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+    
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+    
+        <label for="country">Country</label>
+        <select id="country" name="country">
+          <option value="australia">Australia</option>
+          <option value="canada">Canada</option>
+          <option value="usa">USA</option>
+        </select>
+    
+        <label for="subject">Subject</label>
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+    
+        <input type="submit" value="Submit">
+        `
+
+
+    mainEl.append(infoSectionEl, formSectionEl)
+    document.body.append(mainEl)
+
+}
+
 function render() {
     document.body.innerHTML = ''
     renderHeader()
-    if(state.tab === null){
-        renderMain() 
+    if (state.tab === null) {
+        // renderMain()
+        renderContactPage()
     } else if (state.tab === 'one-place') {
         renderOnePage(state.places)
     } else if (state.tab === 'where-to-go') {
@@ -334,7 +396,7 @@ function render() {
         renderOnePage(state.todos)
     } else if (state.tab === 'what-to-do') {
         renderWhatToDoMain()
-    } 
+    }
 
     renderFooter()
 }
