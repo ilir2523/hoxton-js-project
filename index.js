@@ -3,7 +3,8 @@ const state = {
     todos: [],
     tab: null,
     selectedPlace: null,
-    modal: null
+    modal: null,
+    user: null
 }
 
 function fetchPlaces() {
@@ -12,6 +13,39 @@ function fetchPlaces() {
 
 function fetchTodos() {
     return fetch("http://localhost:3000/todo").then(resp => resp.json())
+}
+
+function signIn(email, password) {
+    return fetch(`http://localhost:3000/users/${email}`)
+      .then(function (resp) {
+        return resp.json()
+      })
+      .then(function (user) {
+        if (user.password === password) {
+          // we know the user signed in successfully
+          alert('Welcome')
+          state.user = user
+          render()
+        } else {
+          // we know the user failed to sign in
+          alert('Wrong email/password. Please try again.')
+        }
+      })
+}
+
+function signUp(firstName, lastName, email, password) {
+    fetch('http://localhost:3000/users', {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        firstName: firstName,
+        lastName: lastName,
+        id: email,
+        password: password
+    })
+})
 }
 
 function getCitiesFromServerToPlaces() {
@@ -149,6 +183,20 @@ function renderSignUp() {
 
     const profileFormEl = document.createElement("form")
     profileFormEl.setAttribute("class", "profile-form")
+    // signUp(firstName, lastName, email, password)
+    profileFormEl.addEventListener('submit', function (event) {
+        // do not refresh the page
+        event.preventDefault()
+    
+        // sign the user in
+        signUp(firstNameInputEl.value, lastNameInputEl.value, emailInputEl.value, passwordInputEl.value)
+    
+        // close the modal
+        state.modal = ''
+    
+        // render
+        render()
+      })
 
     const firstNameLabelEl = document.createElement("label")
     firstNameLabelEl.setAttribute("for", "user-firstName")
@@ -197,7 +245,7 @@ function renderSignUp() {
         render()
     })
 
-    profileFormEl.append(firstNameLabelEl, firstNameInputEl, lastNameLabelEl, lastNameInputEl, emailLabelEl, emailInputEl, passwordLabelEl, passwordInputEl, buttonEl, signUpEl)
+    profileFormEl.append(firstNameLabelEl, firstNameInputEl, lastNameLabelEl, lastNameInputEl, emailLabelEl, emailInputEl, passwordLabelEl, passwordInputEl, buttonEl)
     modalEl.append(closeModalBtn, titleEl, profileFormEl, signUpEl)
     modalWrapperEl.append(modalEl)
 
@@ -232,12 +280,27 @@ function renderSignIn() {
 
     const profileFormEl = document.createElement("form")
     profileFormEl.setAttribute("class", "profile-form")
+    profileFormEl.addEventListener('submit', function (event) {
+        // do not refresh the page
+        event.preventDefault()
+    
+        // sign the user in
+        signIn(emailInputEl.value, passwordInputEl.value)
+    
+        // close the modal
+        state.modal = ''
+    
+        // render
+        render()
+      })
 
     const emailLabelEl = document.createElement("label")
     emailLabelEl.setAttribute("for", "user-email")
     emailLabelEl.textContent = "Email"
 
     const emailInputEl = document.createElement("input")
+    emailInputEl.setAttribute('placeholder', 'Enter your email...')
+    emailInputEl.setAttribute('name', 'email')
     emailInputEl.setAttribute("type", "email")
     emailInputEl.setAttribute("id", "user-email")
 
@@ -246,6 +309,8 @@ function renderSignIn() {
     passwordLabelEl.textContent = "Password"
 
     const passwordInputEl = document.createElement("input")
+    passwordInputEl.setAttribute('placeholder', 'Enter your password...')
+    passwordInputEl.setAttribute('name', 'password')
     passwordInputEl.setAttribute("type", "password")
     passwordInputEl.setAttribute("id", "user-password")
 
@@ -256,7 +321,7 @@ function renderSignIn() {
 
 
     profileFormEl.append(emailLabelEl, emailInputEl, passwordLabelEl, passwordInputEl, signInButtonEl)
-    modalEl.append(closeModalBtn, titleEl, profileFormEl, signInButtonEl)
+    modalEl.append(closeModalBtn, titleEl, profileFormEl)
     modalWrapperEl.append(modalEl)
 
     document.body.append(modalWrapperEl)
