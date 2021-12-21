@@ -15,6 +15,10 @@ function fetchTodos() {
     return fetch("http://localhost:3000/todo").then(resp => resp.json())
 }
 
+function getImages() {
+    fetchPlaces().then(resp => resp)
+}
+
 function signIn(email, password) {
     return fetch(`http://localhost:3000/users/${email}`)
       .then(function (resp) {
@@ -22,12 +26,10 @@ function signIn(email, password) {
       })
       .then(function (user) {
         if (user.password === password) {
-          // we know the user signed in successfully
           alert('Welcome')
           state.user = user
           render()
         } else {
-          // we know the user failed to sign in
           alert('Wrong email/password. Please try again.')
         }
       })
@@ -185,16 +187,12 @@ function renderSignUp() {
     profileFormEl.setAttribute("class", "profile-form")
     // signUp(firstName, lastName, email, password)
     profileFormEl.addEventListener('submit', function (event) {
-        // do not refresh the page
         event.preventDefault()
-    
-        // sign the user in
+
         signUp(firstNameInputEl.value, lastNameInputEl.value, emailInputEl.value, passwordInputEl.value)
-    
-        // close the modal
+
         state.modal = ''
-    
-        // render
+
         render()
       })
 
@@ -281,16 +279,12 @@ function renderSignIn() {
     const profileFormEl = document.createElement("form")
     profileFormEl.setAttribute("class", "profile-form")
     profileFormEl.addEventListener('submit', function (event) {
-        // do not refresh the page
         event.preventDefault()
     
-        // sign the user in
         signIn(emailInputEl.value, passwordInputEl.value)
     
-        // close the modal
         state.modal = ''
     
-        // render
         render()
       })
 
@@ -397,9 +391,19 @@ function renderMain() {
     const mainEl = document.createElement('main')
     mainEl.setAttribute('class', 'main-section')
 
+    let index = 0
+    function changeIndex(){
+        index = index + 1
+    }
+    window.onload = function () {
+        setInterval(changeIndex, 5000);
+    }
     const firstImageEl = document.createElement('img')
     firstImageEl.setAttribute('class', 'image-main-section')
-    firstImageEl.setAttribute('src', 'https://preview.redd.it/qzl76zve3n541.jpg?auto=webp&s=92f26c06f3769e14e056eddb148f7c38420f78a1')
+    console.log(state?.places)
+    console.log(state?.places, state.places[index], state.places?.[index]?.image)
+    firstImageEl.setAttribute('src', state.places?.[index]?.image)
+
     firstImageEl.setAttribute('alt', 'first-image')
 
     const pageNameEl = document.createElement('h2')
