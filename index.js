@@ -121,7 +121,10 @@ function renderHeader() {
     contactLinkEl.setAttribute("href", "#")
     contactLinkEl.setAttribute("class", "header-ul-right")
     contactLinkEl.textContent = "Contact"
-
+contactLinkEl.addEventListener("click", function (){
+    state.tab = "contact-page"
+    render()
+})
     contactLiEl.append(contactLinkEl)
 
     ulHeaderLeft.append(homeLiEl, whereToGoEl, whatToDoEl, contactLiEl)
@@ -607,7 +610,7 @@ function renderContactPage() {
     inputFirstName.setAttribute("placeholder", "Your name..")
     inputFirstName.setAttribute("required", "true")
 
-    labelFirstName.append(inputFirstName)
+    // labelFirstName.append(inputFirstName)
 
     const labelEmailEl = document.createElement("label")
     labelEmailEl.setAttribute("for", "email")
@@ -620,7 +623,7 @@ function renderContactPage() {
     inputEmailEl.setAttribute("placeholder", "Email..")
     inputEmailEl.setAttribute("required", "true")
 
-    labelEmailEl.append(inputEmailEl)
+    // labelEmailEl.append(inputEmailEl)
 
     const labelSubjectEl = document.createElement("label")
     labelSubjectEl.setAttribute("for", "subject")
@@ -656,9 +659,9 @@ function render() {
     document.body.innerHTML = ''
     renderHeader()
     if (state.tab === null) {
-        // renderMain()
-        // createIntervalImageReplacer()
-        renderContactPage()
+        renderMain()
+        createIntervalImageReplacer()
+        
     } else if (state.tab === 'one-place') {
         renderOnePage(state.places)
         clearInterval(state.currentIntervalId)
@@ -671,6 +674,9 @@ function render() {
     } else if (state.tab === 'what-to-do') {
         clearInterval(state.currentIntervalId)
         renderWhatToDoMain()
+    } else if (state.tab === 'contact-page') {
+        clearInterval(state.currentIntervalId)
+        renderContactPage()
     }
 
     renderModal()
