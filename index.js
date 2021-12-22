@@ -4,7 +4,9 @@ const state = {
     tab: null,
     selectedPlace: null,
     modal: null,
-    user: null
+    user: null,
+
+    currentIntervalId: null
 }
 
 function fetchPlaces() {
@@ -387,22 +389,44 @@ function renderWhatToDoMain() {
     }
 }
 
+function createIntervalImageReplacer() {
+
+    let index = 0
+
+    function replaceIndex() {
+
+        const nextIndex = [index + 1]
+
+        if(state.places[nextIndex]?.image){
+            index = index + 1
+        } else {
+            index = 0
+        }
+
+        const imageToReplace = state.places[index]?.image
+
+        const firstImageEl = document.querySelector('.image-main-section')
+        firstImageEl.setAttribute('src', imageToReplace)
+    }
+
+    if (state.currentIntervalId) {
+        clearInterval(state.currentIntervalId)
+        console.log('removed interval with id', state.currentIntervalId)
+    }
+
+    const intervalId = setInterval(replaceIndex, 1000);
+    state.currentIntervalId = intervalId
+}
+
 function renderMain() {
     const mainEl = document.createElement('main')
     mainEl.setAttribute('class', 'main-section')
 
-    let index = 0
-    function changeIndex(){
-        index = index + 1
-    }
-    window.onload = function () {
-        setInterval(changeIndex, 5000);
-    }
+    // if (state.places[index]?.image) return
+
     const firstImageEl = document.createElement('img')
     firstImageEl.setAttribute('class', 'image-main-section')
-    console.log(state?.places)
-    console.log(state?.places, state.places[index], state.places?.[index]?.image)
-    firstImageEl.setAttribute('src', state.places?.[index]?.image)
+    firstImageEl.setAttribute('src', state.places[0]?.image)
 
     firstImageEl.setAttribute('alt', 'first-image')
 
@@ -553,13 +577,18 @@ function render() {
     renderHeader()
     if (state.tab === null) {
         renderMain()
+        createIntervalImageReplacer()
     } else if (state.tab === 'one-place') {
         renderOnePage(state.places)
+        clearInterval(state.intervalId)
     } else if (state.tab === 'where-to-go') {
         renderWhereToGoMain()
+        clearInterval(state.intervalId)
     } else if (state.tab === 'one-todo') {
+        clearInterval(state.intervalId)
         renderOnePage(state.todos)
     } else if (state.tab === 'what-to-do') {
+        clearInterval(state.intervalId)
         renderWhatToDoMain()
     } 
 
