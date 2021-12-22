@@ -4,7 +4,10 @@ const state = {
     tab: null,
     selectedPlace: null,
     modal: null,
-    user: null
+    user: null,
+
+    currentIntervalId: null,
+    imageIndex: 0
 }
 
 function fetchPlaces() {
@@ -17,35 +20,33 @@ function fetchTodos() {
 
 function signIn(email, password) {
     return fetch(`http://localhost:3000/users/${email}`)
-      .then(function (resp) {
-        return resp.json()
-      })
-      .then(function (user) {
-        if (user.password === password) {
-          // we know the user signed in successfully
-          alert('Welcome')
-          state.user = user
-          render()
-        } else {
-          // we know the user failed to sign in
-          alert('Wrong email/password. Please try again.')
-        }
-      })
+        .then(function (resp) {
+            return resp.json()
+        })
+        .then(function (user) {
+            if (user.password === password) {
+                alert('Welcome')
+                state.user = user
+                render()
+            } else {
+                alert('Wrong email/password. Please try again.')
+            }
+        })
 }
 
 function signUp(firstName, lastName, email, password) {
     fetch('http://localhost:3000/users', {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-        firstName: firstName,
-        lastName: lastName,
-        id: email,
-        password: password
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            firstName: firstName,
+            lastName: lastName,
+            id: email,
+            password: password
+        })
     })
-})
 }
 
 function getCitiesFromServerToPlaces() {
@@ -108,7 +109,7 @@ function renderHeader() {
     const whatToDoLink = document.createElement("a")
     whatToDoLink.setAttribute("href", "#")
     whatToDoLink.textContent = "What To Do"
-    whatToDoLink.addEventListener('click', function(){
+    whatToDoLink.addEventListener('click', function () {
         state.tab = 'what-to-do'
         state.selectedPlace = null
         render()
@@ -140,14 +141,14 @@ function renderHeader() {
     const signButtonEl = document.createElement("button")
     const signImageEl = document.createElement("img")
     signImageEl.setAttribute('src', 'icons/account_circle_black_24dp.svg')
-    signButtonEl.addEventListener('click', function() {
+    signButtonEl.addEventListener('click', function () {
         state.modal = 'sign-up'
         render()
     })
 
     signButtonEl.append(signImageEl)
     liButtonEl.append(signButtonEl)
-    
+
     headerButtonEl.append(liSearchButton, liButtonEl)
 
     headerEl.append(pageNameEl, ulHeaderLeft, headerButtonEl)
@@ -185,18 +186,14 @@ function renderSignUp() {
     profileFormEl.setAttribute("class", "profile-form")
     // signUp(firstName, lastName, email, password)
     profileFormEl.addEventListener('submit', function (event) {
-        // do not refresh the page
         event.preventDefault()
-    
-        // sign the user in
+
         signUp(firstNameInputEl.value, lastNameInputEl.value, emailInputEl.value, passwordInputEl.value)
-    
-        // close the modal
+
         state.modal = ''
-    
-        // render
+
         render()
-      })
+    })
 
     const firstNameLabelEl = document.createElement("label")
     firstNameLabelEl.setAttribute("for", "user-firstName")
@@ -240,7 +237,7 @@ function renderSignUp() {
     signUpEl.setAttribute('class', 'signup-link')
     signUpEl.setAttribute('href', '#')
     signUpEl.textContent = 'Sign In'
-    signUpEl.addEventListener('click', function() {
+    signUpEl.addEventListener('click', function () {
         state.modal = 'sign-in'
         render()
     })
@@ -281,18 +278,14 @@ function renderSignIn() {
     const profileFormEl = document.createElement("form")
     profileFormEl.setAttribute("class", "profile-form")
     profileFormEl.addEventListener('submit', function (event) {
-        // do not refresh the page
         event.preventDefault()
-    
-        // sign the user in
+
         signIn(emailInputEl.value, passwordInputEl.value)
-    
-        // close the modal
+
         state.modal = ''
-    
-        // render
+
         render()
-      })
+    })
 
     const emailLabelEl = document.createElement("label")
     emailLabelEl.setAttribute("for", "user-email")
@@ -370,7 +363,7 @@ function renderWhatToDoMain() {
     for (const todo of state.todos) {
         const placesContainerDivEl = document.createElement('div')
         placesContainerDivEl.setAttribute('class', 'container')
-        placesContainerDivEl.addEventListener('click', function() {
+        placesContainerDivEl.addEventListener('click', function () {
             state.tab = "one-todo"
             state.selectedPlace = todo.id
             render()
@@ -393,13 +386,44 @@ function renderWhatToDoMain() {
     }
 }
 
+function createIntervalImageReplacer() {
+
+    state.imageIndex = 0
+
+    function replaceImage() {
+
+        if (state.places?.[state.imageIndex + 1]?.image) {
+            state.imageIndex = state.imageIndex + 1
+        } else {
+            state.imageIndex = 0
+        }
+
+        const imageToReplace = state.places?.[state.imageIndex]?.image
+
+        const firstImageEl = document.querySelector('.image-main-section')
+        firstImageEl.setAttribute('src', imageToReplace)
+    }
+
+    if (state.currentIntervalId) {
+        clearInterval(state.currentIntervalId)
+        console.log('removed interval with id', state.currentIntervalId)
+    }
+
+    const intervalId = setInterval(replaceImage, 5000)
+    console.log('set new interval id into state => ', intervalId)
+    state.currentIntervalId = intervalId
+}
+
 function renderMain() {
     const mainEl = document.createElement('main')
     mainEl.setAttribute('class', 'main-section')
 
+    if (state.places.length === 0) return
+
     const firstImageEl = document.createElement('img')
     firstImageEl.setAttribute('class', 'image-main-section')
     firstImageEl.setAttribute('src', 'https://preview.redd.it/qzl76zve3n541.jpg?auto=webp&s=92f26c06f3769e14e056eddb148f7c38420f78a1')
+
     firstImageEl.setAttribute('alt', 'first-image')
 
     const pageNameEl = document.createElement('h2')
@@ -526,7 +550,7 @@ function renderOnePage(places) {
     const placeNameEl = document.createElement('h3')
     placeNameEl.setAttribute('class', 'one-name-list-secction')
     placeNameEl.textContent = place.name.toUpperCase()
-    
+
     const placeTextEl = document.createElement("p")
     placeTextEl.setAttribute("class", "place-text-section")
     placeTextEl.textContent = place.info
@@ -536,8 +560,8 @@ function renderOnePage(places) {
     document.body.append(mainEl)
 }
 
-function renderModal(){
-    if (state.modal === 'sign-up'){
+function renderModal() {
+    if (state.modal === 'sign-up') {
         renderSignUp()
     } else if (state.modal === 'sign-in') {
         renderSignIn()
@@ -549,15 +573,20 @@ function render() {
     renderHeader()
     if (state.tab === null) {
         renderMain()
+        createIntervalImageReplacer()
     } else if (state.tab === 'one-place') {
         renderOnePage(state.places)
+        clearInterval(state.currentIntervalId)
     } else if (state.tab === 'where-to-go') {
         renderWhereToGoMain()
+        clearInterval(state.currentIntervalId)
     } else if (state.tab === 'one-todo') {
+        clearInterval(state.currentIntervalId)
         renderOnePage(state.todos)
     } else if (state.tab === 'what-to-do') {
+        clearInterval(state.currentIntervalId)
         renderWhatToDoMain()
-    } 
+    }
 
     renderModal()
     renderFooter()
