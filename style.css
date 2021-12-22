@@ -72,9 +72,6 @@ header ul{
     background-color: #ffffff;
 }
 
-.headers-button button:active {
-    background-color: aqua;
-}
 
 .one__place-main-section{
     display: grid;
