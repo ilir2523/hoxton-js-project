@@ -356,19 +356,51 @@ function renderContactPage() {
 
     const formSectionEl = document.createElement('form')
     formSectionEl.setAttribute('class', 'form-contact-section')
-    formSectionEl.innerHTML = `
-        <label for="fname">First Name</label>
-        <input type="text" id="fname" name="firstname" placeholder="Your name..">
-    
-        <label for="lname">Email</label>
-        <input type="email" id="lname" name="email" placeholder="Email..">
-    
-        <label for="subject">Subject</label>
-        <textarea id="subject" name="subject" placeholder="Write something.."></textarea>
-    
-        <input type="submit" value="Submit">
-        `
 
+    const labelFirstName = document.createElement("label")
+    labelFirstName.setAttribute("for", "fname")
+    labelFirstName.textContent = "First Name"
+
+    const inputFirstName = document.createElement("input")
+    inputFirstName.setAttribute("type", "text")
+    inputFirstName.setAttribute("id", "fname")
+    inputFirstName.setAttribute("name", "firstname")
+    inputFirstName.setAttribute("placeholder", "Your name..")
+    inputFirstName.setAttribute("required", "true")
+
+    labelFirstName.append(inputFirstName)
+
+    const labelEmailEl = document.createElement("label")
+    labelEmailEl.setAttribute("for", "email")
+    labelEmailEl.textContent = "Email"
+
+    const inputEmailEl = document.createElement("input")
+    inputEmailEl.setAttribute("type", "email")
+    inputEmailEl.setAttribute("id", "email")
+    inputEmailEl.setAttribute("name", "email")
+    inputEmailEl.setAttribute("placeholder", "Email..")
+    inputEmailEl.setAttribute("required", "true")
+
+    labelEmailEl.append(inputEmailEl)
+
+    const labelSubjectEl = document.createElement("label")
+    labelSubjectEl.setAttribute("for", "subject")
+    labelSubjectEl.textContent = "Subject"
+
+    const subjectTextAreaEl = document.createElement("textarea")
+    subjectTextAreaEl.setAttribute("id", "subject")
+    subjectTextAreaEl.setAttribute("name", "subject")
+    subjectTextAreaEl.setAttribute("placeholder", "Write something")
+    subjectTextAreaEl.setAttribute("id", "subject")
+
+    labelSubjectEl.append(subjectTextAreaEl)
+
+    const submitInputEl = document.createElement("input")
+    submitInputEl.setAttribute("type", "submit")
+    submitInputEl.setAttribute("value", "Submit")
+
+    formSectionEl.append(labelFirstName, labelEmailEl, labelSubjectEl, submitInputEl)
+    console.log(formSectionEl)
     mainEl.append(infoSectionEl, formSectionEl)
     document.body.append(mainEl)
 
