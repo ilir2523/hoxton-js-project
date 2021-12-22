@@ -49,6 +49,20 @@ function signUp(firstName, lastName, email, password) {
     })
 }
 
+function leaveComment(firstName, email, message) {
+    fetch('http://localhost:3000/messages', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            firstName: firstName,
+            id: email,
+            message: message
+        })
+    })
+}
+
 function getCitiesFromServerToPlaces() {
     return fetchPlaces().then(function (city) {
         state.places = city
@@ -598,6 +612,13 @@ function renderContactPage() {
 
     const formSectionEl = document.createElement('form')
     formSectionEl.setAttribute('class', 'form-contact-section')
+    formSectionEl.addEventListener('submit', function (event) {
+        event.preventDefault()
+
+        leaveComment(inputFirstName.value, inputEmailEl.value, subjectTextAreaEl.value)
+
+        render()
+    })
 
     const labelFirstName = document.createElement("label")
     labelFirstName.setAttribute("for", "fname")
@@ -629,7 +650,7 @@ function renderContactPage() {
     subjectTextAreaEl.setAttribute("id", "subject")
     subjectTextAreaEl.setAttribute("name", "subject")
     subjectTextAreaEl.setAttribute("placeholder", "Write something")
-    subjectTextAreaEl.setAttribute("id", "subject")
+    subjectTextAreaEl.setAttribute("type", "text")
 
     const submitInputEl = document.createElement("input")
     submitInputEl.setAttribute("type", "submit")
