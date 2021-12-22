@@ -610,8 +610,6 @@ function renderContactPage() {
     inputFirstName.setAttribute("placeholder", "Your name..")
     inputFirstName.setAttribute("required", "true")
 
-    // labelFirstName.append(inputFirstName)
-
     const labelEmailEl = document.createElement("label")
     labelEmailEl.setAttribute("for", "email")
     labelEmailEl.textContent = "Email"
@@ -623,8 +621,6 @@ function renderContactPage() {
     inputEmailEl.setAttribute("placeholder", "Email..")
     inputEmailEl.setAttribute("required", "true")
 
-    // labelEmailEl.append(inputEmailEl)
-
     const labelSubjectEl = document.createElement("label")
     labelSubjectEl.setAttribute("for", "subject")
     labelSubjectEl.textContent = "Subject"
@@ -635,13 +631,11 @@ function renderContactPage() {
     subjectTextAreaEl.setAttribute("placeholder", "Write something")
     subjectTextAreaEl.setAttribute("id", "subject")
 
-    labelSubjectEl.append(subjectTextAreaEl)
-
     const submitInputEl = document.createElement("input")
     submitInputEl.setAttribute("type", "submit")
     submitInputEl.setAttribute("value", "Submit")
 
-    formSectionEl.append(labelFirstName, labelEmailEl, labelSubjectEl, submitInputEl)
+    formSectionEl.append(labelFirstName,inputFirstName, labelEmailEl, inputEmailEl, labelSubjectEl, subjectTextAreaEl, submitInputEl)
     console.log(formSectionEl)
     mainEl.append(infoSectionEl, formSectionEl)
     document.body.append(mainEl)
