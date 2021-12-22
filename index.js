@@ -560,6 +560,90 @@ function renderOnePage(places) {
     document.body.append(mainEl)
 }
 
+function renderContactPage() {
+    const mainEl = document.createElement('main')
+    mainEl.setAttribute('class', 'contact-main-section')
+
+    const infoSectionEl = document.createElement('section')
+    infoSectionEl.setAttribute('class', 'info-contact-section')
+
+    const greetingH2El = document.createElement('h2')
+    greetingH2El.setAttribute('class', 'greeting-contact-section')
+    greetingH2El.textContent = 'Feel Free to Contact us For Help or Additional Info'
+
+    const companyNameSpanEl = document.createElement('span')
+    companyNameSpanEl.setAttribute('class', 'text-contact-section')
+    companyNameSpanEl.textContent = 'Visit Albania Tourism Agency'
+
+    const companyDirectorNameSpanEl = document.createElement('span')
+    companyDirectorNameSpanEl.setAttribute('class', 'text-contact-section')
+    companyDirectorNameSpanEl.textContent = 'Visit Albania Tourism Agency Director: Artiola Caka'
+
+    const companyPhoneNumberSpanEl = document.createElement('span')
+    companyPhoneNumberSpanEl.setAttribute('class', 'text-contact-section')
+    companyPhoneNumberSpanEl.textContent = 'Tel: +355 (04) 123 45 67'
+
+    const companyEmailSpanEl = document.createElement('span')
+    companyEmailSpanEl.setAttribute('class', 'text-contact-section')
+    companyEmailSpanEl.textContent = 'Email: info@visitalbania.com.al'
+
+    const companyAdressSpanEl = document.createElement('span')
+    companyAdressSpanEl.setAttribute('class', 'text-contact-section')
+    companyAdressSpanEl.textContent = 'Tirana, Albania'
+
+    infoSectionEl.append(greetingH2El, companyNameSpanEl, companyDirectorNameSpanEl, companyPhoneNumberSpanEl, companyEmailSpanEl, companyAdressSpanEl)
+
+    const formSectionEl = document.createElement('form')
+    formSectionEl.setAttribute('class', 'form-contact-section')
+
+    const labelFirstName = document.createElement("label")
+    labelFirstName.setAttribute("for", "fname")
+    labelFirstName.textContent = "First Name"
+
+    const inputFirstName = document.createElement("input")
+    inputFirstName.setAttribute("type", "text")
+    inputFirstName.setAttribute("id", "fname")
+    inputFirstName.setAttribute("name", "firstname")
+    inputFirstName.setAttribute("placeholder", "Your name..")
+    inputFirstName.setAttribute("required", "true")
+
+    labelFirstName.append(inputFirstName)
+
+    const labelEmailEl = document.createElement("label")
+    labelEmailEl.setAttribute("for", "email")
+    labelEmailEl.textContent = "Email"
+
+    const inputEmailEl = document.createElement("input")
+    inputEmailEl.setAttribute("type", "email")
+    inputEmailEl.setAttribute("id", "email")
+    inputEmailEl.setAttribute("name", "email")
+    inputEmailEl.setAttribute("placeholder", "Email..")
+    inputEmailEl.setAttribute("required", "true")
+
+    labelEmailEl.append(inputEmailEl)
+
+    const labelSubjectEl = document.createElement("label")
+    labelSubjectEl.setAttribute("for", "subject")
+    labelSubjectEl.textContent = "Subject"
+
+    const subjectTextAreaEl = document.createElement("textarea")
+    subjectTextAreaEl.setAttribute("id", "subject")
+    subjectTextAreaEl.setAttribute("name", "subject")
+    subjectTextAreaEl.setAttribute("placeholder", "Write something")
+    subjectTextAreaEl.setAttribute("id", "subject")
+
+    labelSubjectEl.append(subjectTextAreaEl)
+
+    const submitInputEl = document.createElement("input")
+    submitInputEl.setAttribute("type", "submit")
+    submitInputEl.setAttribute("value", "Submit")
+
+    formSectionEl.append(labelFirstName, labelEmailEl, labelSubjectEl, submitInputEl)
+    console.log(formSectionEl)
+    mainEl.append(infoSectionEl, formSectionEl)
+    document.body.append(mainEl)
+}
+
 function renderModal() {
     if (state.modal === 'sign-up') {
         renderSignUp()
@@ -572,8 +656,9 @@ function render() {
     document.body.innerHTML = ''
     renderHeader()
     if (state.tab === null) {
-        renderMain()
-        createIntervalImageReplacer()
+        // renderMain()
+        // createIntervalImageReplacer()
+        renderContactPage()
     } else if (state.tab === 'one-place') {
         renderOnePage(state.places)
         clearInterval(state.currentIntervalId)
