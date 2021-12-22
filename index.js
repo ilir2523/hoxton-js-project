@@ -121,10 +121,10 @@ function renderHeader() {
     contactLinkEl.setAttribute("href", "#")
     contactLinkEl.setAttribute("class", "header-ul-right")
     contactLinkEl.textContent = "Contact"
-contactLinkEl.addEventListener("click", function (){
-    state.tab = "contact-page"
-    render()
-})
+    contactLinkEl.addEventListener("click", function () {
+        state.tab = "contact-page"
+        render()
+    })
     contactLiEl.append(contactLinkEl)
 
     ulHeaderLeft.append(homeLiEl, whereToGoEl, whatToDoEl, contactLiEl)
@@ -133,6 +133,8 @@ contactLinkEl.addEventListener("click", function (){
     headerButtonEl.setAttribute("class", "headers-button")
 
     const liSearchButton = document.createElement("li")
+
+   
     const searchButtonEl = document.createElement("button")
     const searchImageEl = document.createElement("img")
     searchImageEl.setAttribute('src', 'icons/search_black_24dp.svg')
@@ -158,6 +160,35 @@ contactLinkEl.addEventListener("click", function (){
     document.body.append(headerEl)
 }
 
+function renderSearchButton() {
+    const modalWrapperSearchEl = document.createElement("div")
+    modalWrapperSearchEl.setAttribute("class", "modal-wrapper")
+
+    const modalSearchEl = document.createElement("div")
+    modalSearchEl.setAttribute("class", "modal")
+
+    const closeModalButtonEl = document.createElement("button")
+    closeModalButtonEl.setAttribute("class", "modal__close-btn")
+    closeModalButtonEl.textContent = X
+
+    const searchTitleEl = document.createElement("h2")
+    searchTitleEl.setAttribute("class", "search-title")
+    searchTitleEl.textContent = "Search"
+
+    const searchFormEl = document.createElement("form")
+    searchFormEl.setAttribute("class", "search-form")
+
+    const searchInputEl = document.createElement('input')
+    searchInputEl.setAttribute('type', 'text')
+    searchInputEl.setAttribute('id', 'search-input')
+
+
+    searchFormEl.append(searchInputEl)
+    modalSearchEl.append(searchTitleEl, searchFormEl, closeModalButtonEl)
+    modalWrapperSearchEl.append(modalSearchEl)
+    document.body.append(modalWrapperSearchEl)
+
+}
 //CREATING SIGN UP FORM 
 function renderSignUp() {
     const modalWrapperEl = document.createElement('div')
@@ -661,7 +692,7 @@ function render() {
     if (state.tab === null) {
         renderMain()
         createIntervalImageReplacer()
-        
+
     } else if (state.tab === 'one-place') {
         renderOnePage(state.places)
         clearInterval(state.currentIntervalId)
@@ -680,6 +711,7 @@ function render() {
     }
 
     renderModal()
+    // renderSearchButton()
     renderFooter()
 }
 render()
