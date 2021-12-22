@@ -122,5 +122,19 @@
       "image": "https://photos.tpn.to/jh/sr/ti/ko/299x225.jpg",
       "info": "Horse riding is practiced mainly in districts that have high quality horse-breeding centers, such as in Shkodër, Durrës, Tiranë, Elbasan (Cërrik), Korçë, Divjakë, Berat, Vlorë, Fusha e Pelave at Lura, Shishtavec in Kukës, Zagoria area, Vjosa, Drinos valley nearby Gjirokastër etc. The geographic range of this sport is very interesting, as the nature in each of the above spots is combined with certain natural, historical and traditional elements. For horse riding enthusiasts in the capital, there are centers that offer horse riding, such as Mullet, Pezë etj."
     }
+  ],
+  "users": [
+    {
+      "firstName": "Ilir",
+      "lastName": "Rukaj",
+      "id": "test@email.com",
+      "password": "test"
+    },
+    {
+      "firstName": "Artiola",
+      "lastName": "Caka",
+      "id": "artiola@email.co",
+      "password": "artiola"
+    }
   ]
 }

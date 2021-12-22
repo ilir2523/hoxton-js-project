@@ -2,7 +2,12 @@ const state = {
     places: [],
     todos: [],
     tab: null,
-    selectedPlace: null
+    selectedPlace: null,
+    modal: null,
+    user: null,
+
+    currentIntervalId: null,
+    imageIndex: 0
 }
 
 function fetchPlaces() {
@@ -11,6 +16,37 @@ function fetchPlaces() {
 
 function fetchTodos() {
     return fetch("http://localhost:3000/todo").then(resp => resp.json())
+}
+
+function signIn(email, password) {
+    return fetch(`http://localhost:3000/users/${email}`)
+        .then(function (resp) {
+            return resp.json()
+        })
+        .then(function (user) {
+            if (user.password === password) {
+                alert('Welcome')
+                state.user = user
+                render()
+            } else {
+                alert('Wrong email/password. Please try again.')
+            }
+        })
+}
+
+function signUp(firstName, lastName, email, password) {
+    fetch('http://localhost:3000/users', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            firstName: firstName,
+            lastName: lastName,
+            id: email,
+            password: password
+        })
+    })
 }
 
 function getCitiesFromServerToPlaces() {
@@ -93,22 +129,195 @@ function renderHeader() {
     const headerButtonEl = document.createElement("ul")
     headerButtonEl.setAttribute("class", "headers-button")
 
-    const liButtonEl = document.createElement("li")
-    const signButtonEl = document.createElement("button")
-    signButtonEl.textContent = "Sign In"
-
-    liButtonEl.append(signButtonEl)
-
     const liSearchButton = document.createElement("li")
     const searchButtonEl = document.createElement("button")
-    searchButtonEl.textContent = "Search"
+    const searchImageEl = document.createElement("img")
+    searchImageEl.setAttribute('src', 'icons/search_black_24dp.svg')
 
+    searchButtonEl.append(searchImageEl)
     liSearchButton.append(searchButtonEl)
 
-    headerButtonEl.append(liButtonEl, liSearchButton)
+    const liButtonEl = document.createElement("li")
+    const signButtonEl = document.createElement("button")
+    const signImageEl = document.createElement("img")
+    signImageEl.setAttribute('src', 'icons/account_circle_black_24dp.svg')
+    signButtonEl.addEventListener('click', function () {
+        state.modal = 'sign-up'
+        render()
+    })
+
+    signButtonEl.append(signImageEl)
+    liButtonEl.append(signButtonEl)
+
+    headerButtonEl.append(liSearchButton, liButtonEl)
 
     headerEl.append(pageNameEl, ulHeaderLeft, headerButtonEl)
     document.body.append(headerEl)
+}
+
+//CREATING SIGN UP FORM 
+function renderSignUp() {
+    const modalWrapperEl = document.createElement('div')
+    modalWrapperEl.setAttribute('class', 'modal-wrapper')
+    modalWrapperEl.addEventListener('click', function () {
+        state.modal = ''
+        render()
+    })
+
+    const modalEl = document.createElement('div')
+    modalEl.setAttribute('class', 'modal')
+    modalEl.addEventListener('click', function (event) {
+        event.stopPropagation()
+    })
+
+    const closeModalBtn = document.createElement('button')
+    closeModalBtn.setAttribute('class', 'modal__close-btn')
+    closeModalBtn.textContent = 'X'
+    closeModalBtn.addEventListener('click', function () {
+        state.modal = ''
+        render()
+    })
+
+    const titleEl = document.createElement("h2")
+    titleEl.setAttribute("class", "search-title")
+    titleEl.textContent = "Sign Up"
+
+    const profileFormEl = document.createElement("form")
+    profileFormEl.setAttribute("class", "profile-form")
+    // signUp(firstName, lastName, email, password)
+    profileFormEl.addEventListener('submit', function (event) {
+        event.preventDefault()
+
+        signUp(firstNameInputEl.value, lastNameInputEl.value, emailInputEl.value, passwordInputEl.value)
+
+        state.modal = ''
+
+        render()
+    })
+
+    const firstNameLabelEl = document.createElement("label")
+    firstNameLabelEl.setAttribute("for", "user-firstName")
+    firstNameLabelEl.textContent = 'First name'
+
+    const firstNameInputEl = document.createElement('input')
+    firstNameInputEl.setAttribute('type', 'text')
+    firstNameInputEl.setAttribute('id', 'user-firstName')
+
+    const lastNameLabelEl = document.createElement('label')
+    lastNameLabelEl.setAttribute('for', 'user-lastName')
+    lastNameLabelEl.textContent = 'Last name'
+
+    const lastNameInputEl = document.createElement('input')
+    lastNameInputEl.setAttribute('type', 'text')
+    lastNameInputEl.setAttribute('id', 'user-lastName')
+
+    const emailLabelEl = document.createElement('label')
+    emailLabelEl.setAttribute('for', 'user-email')
+    emailLabelEl.textContent = 'Email'
+
+    const emailInputEl = document.createElement('input')
+    emailInputEl.setAttribute('type', 'email')
+    emailInputEl.setAttribute('id', 'user-email')
+
+
+    const passwordLabelEl = document.createElement('label')
+    passwordLabelEl.setAttribute('for', 'user-password')
+    passwordLabelEl.textContent = 'Password'
+
+    const passwordInputEl = document.createElement('input')
+    passwordInputEl.setAttribute('type', 'password')
+    passwordInputEl.setAttribute('id', 'user-password')
+
+    const buttonEl = document.createElement('button')
+    buttonEl.setAttribute('class', 'signin-button')
+    buttonEl.setAttribute('type', 'submit')
+    buttonEl.textContent = 'Sign Up'
+
+    const signUpEl = document.createElement('a')
+    signUpEl.setAttribute('class', 'signup-link')
+    signUpEl.setAttribute('href', '#')
+    signUpEl.textContent = 'Sign In'
+    signUpEl.addEventListener('click', function () {
+        state.modal = 'sign-in'
+        render()
+    })
+
+    profileFormEl.append(firstNameLabelEl, firstNameInputEl, lastNameLabelEl, lastNameInputEl, emailLabelEl, emailInputEl, passwordLabelEl, passwordInputEl, buttonEl)
+    modalEl.append(closeModalBtn, titleEl, profileFormEl, signUpEl)
+    modalWrapperEl.append(modalEl)
+
+    document.body.append(modalWrapperEl)
+}
+//CREATING SIGN IN FORM
+function renderSignIn() {
+    const modalWrapperEl = document.createElement('div')
+    modalWrapperEl.setAttribute('class', 'modal-wrapper')
+    modalWrapperEl.addEventListener('click', function () {
+        state.modal = ''
+        render()
+    })
+
+    const modalEl = document.createElement('div')
+    modalEl.setAttribute('class', 'modal')
+    modalEl.addEventListener('click', function (event) {
+        event.stopPropagation()
+    })
+
+    const closeModalBtn = document.createElement('button')
+    closeModalBtn.setAttribute('class', 'modal__close-btn')
+    closeModalBtn.textContent = 'X'
+    closeModalBtn.addEventListener('click', function () {
+        state.modal = ''
+        render()
+    })
+
+    const titleEl = document.createElement('h2')
+    titleEl.setAttribute('class', 'search-title')
+    titleEl.textContent = 'Sign in'
+
+    const profileFormEl = document.createElement("form")
+    profileFormEl.setAttribute("class", "profile-form")
+    profileFormEl.addEventListener('submit', function (event) {
+        event.preventDefault()
+
+        signIn(emailInputEl.value, passwordInputEl.value)
+
+        state.modal = ''
+
+        render()
+    })
+
+    const emailLabelEl = document.createElement("label")
+    emailLabelEl.setAttribute("for", "user-email")
+    emailLabelEl.textContent = "Email"
+
+    const emailInputEl = document.createElement("input")
+    emailInputEl.setAttribute('placeholder', 'Enter your email...')
+    emailInputEl.setAttribute('name', 'email')
+    emailInputEl.setAttribute("type", "email")
+    emailInputEl.setAttribute("id", "user-email")
+
+    const passwordLabelEl = document.createElement("label")
+    passwordLabelEl.setAttribute("for", "user-password")
+    passwordLabelEl.textContent = "Password"
+
+    const passwordInputEl = document.createElement("input")
+    passwordInputEl.setAttribute('placeholder', 'Enter your password...')
+    passwordInputEl.setAttribute('name', 'password')
+    passwordInputEl.setAttribute("type", "password")
+    passwordInputEl.setAttribute("id", "user-password")
+
+    const signInButtonEl = document.createElement("button")
+    signInButtonEl.setAttribute("class", "signin-button")
+    signInButtonEl.setAttribute("type", "submit")
+    signInButtonEl.textContent = "Sign In"
+
+
+    profileFormEl.append(emailLabelEl, emailInputEl, passwordLabelEl, passwordInputEl, signInButtonEl)
+    modalEl.append(closeModalBtn, titleEl, profileFormEl)
+    modalWrapperEl.append(modalEl)
+
+    document.body.append(modalWrapperEl)
 }
 
 function renderWhereToGoMain() {
@@ -177,14 +386,44 @@ function renderWhatToDoMain() {
     }
 }
 
+function createIntervalImageReplacer() {
+
+    state.imageIndex = 0
+
+    function replaceImage() {
+
+        if (state.places?.[state.imageIndex + 1]?.image) {
+            state.imageIndex = state.imageIndex + 1
+        } else {
+            state.imageIndex = 0
+        }
+
+        const imageToReplace = state.places?.[state.imageIndex]?.image
+
+        const firstImageEl = document.querySelector('.image-main-section')
+        firstImageEl.setAttribute('src', imageToReplace)
+    }
+
+    if (state.currentIntervalId) {
+        clearInterval(state.currentIntervalId)
+        console.log('removed interval with id', state.currentIntervalId)
+    }
+
+    const intervalId = setInterval(replaceImage, 5000)
+    console.log('set new interval id into state => ', intervalId)
+    state.currentIntervalId = intervalId
+}
 
 function renderMain() {
     const mainEl = document.createElement('main')
     mainEl.setAttribute('class', 'main-section')
 
+    if (state.places.length === 0) return
+
     const firstImageEl = document.createElement('img')
     firstImageEl.setAttribute('class', 'image-main-section')
     firstImageEl.setAttribute('src', 'https://preview.redd.it/qzl76zve3n541.jpg?auto=webp&s=92f26c06f3769e14e056eddb148f7c38420f78a1')
+
     firstImageEl.setAttribute('alt', 'first-image')
 
     const pageNameEl = document.createElement('h2')
@@ -403,7 +642,14 @@ function renderContactPage() {
     console.log(formSectionEl)
     mainEl.append(infoSectionEl, formSectionEl)
     document.body.append(mainEl)
+}
 
+function renderModal() {
+    if (state.modal === 'sign-up') {
+        renderSignUp()
+    } else if (state.modal === 'sign-in') {
+        renderSignIn()
+    }
 }
 
 function render() {
@@ -411,17 +657,23 @@ function render() {
     renderHeader()
     if (state.tab === null) {
         // renderMain()
+        // createIntervalImageReplacer()
         renderContactPage()
     } else if (state.tab === 'one-place') {
         renderOnePage(state.places)
+        clearInterval(state.currentIntervalId)
     } else if (state.tab === 'where-to-go') {
         renderWhereToGoMain()
+        clearInterval(state.currentIntervalId)
     } else if (state.tab === 'one-todo') {
+        clearInterval(state.currentIntervalId)
         renderOnePage(state.todos)
     } else if (state.tab === 'what-to-do') {
+        clearInterval(state.currentIntervalId)
         renderWhatToDoMain()
     }
 
+    renderModal()
     renderFooter()
 }
 render()
