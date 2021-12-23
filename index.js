@@ -531,11 +531,9 @@ function createIntervalImageReplacer() {
 
     if (state.currentIntervalId) {
         clearInterval(state.currentIntervalId)
-        console.log('removed interval with id', state.currentIntervalId)
     }
 
     const intervalId = setInterval(replaceImage, 5000)
-    console.log('set new interval id into state => ', intervalId)
     state.currentIntervalId = intervalId
 }
 
