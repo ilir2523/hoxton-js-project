@@ -15,8 +15,8 @@
     {
       "id": 3,
       "name": "Vlore",
-      "image": "http://d39raawggeifpx.cloudfront.net/styles/16_9_desktop/s3/articleimages/800px-Perendim,1_shtator_2017_Vlore_Albania-2_Cropped_0.jpg",
-      "info": "Vlore is a harbour city that holds special meaning for Albanians, as this is where the country declared its independence from the Ottoman Empire at the start of the 20th century. So you can take a whistle-stop tour of monuments and museums celebrating the statesman Ismail Qemali’s first government, and in doing so get to know a little more about what it means to be Albanian. If you’d like ideas for days trips the wider region is both untamed and beautiful. Relaxing tourist beaches with clear waters are just a handful of kilometres away, and if you follow the coastal road south there’s a string of charming little resorts punctuated by the vast mountainscapes of the Llogora National Park."
+      "image": "https://static3.bigstockphoto.com/7/0/3/large1500/30777785.jpg",
+      "info": "Vlore is a harbour city that holds special meaning for Albanians, as this is where the country declared its independence from the Ottoman Empire at the start of the 20th century. So you can take a whistle-stop tour of monuments and museums celebrating the statesman Ismail Qemali’s first government, and in doing so get to know a little more about what it means to be Albanian. If you’d like ideas for days trips the wider region is both untamed and beautiful. Relaxing tourist beaches with clear waters are just a handful of kilometres away, and if you follow the coastal road south there’s a string of charming little resorts punctuated by the vast mountainscapes of the Llogora National Park. The Llogara Pass is one of Albania’s most famous places, with the road providing one of the most spectacular drives in the whole world. Located in the middle of the Llogara National Park, the road travels to over 1,000 metres above sea level and the scenery will take your breath away."
     },
     {
       "id": 4,
@@ -39,7 +39,7 @@
     {
       "id": 7,
       "name": "Gjirokaster",
-      "image": "https://adriseismic.adrioninterreg.eu/wp-content/uploads/2020/12/Gjirokastra-adriseismic-partner-Albania-3.png",
+      "image": "https://i.pinimg.com/originals/6f/1d/e6/6f1de615979bf14e0df10f54bfe88055.jpg",
       "info": "Gjirokastra is love on the first sight. A UNESCO World Heritage Site, the old town is famous for being a well-preserved city of authentic architecture and its fortress overlooking the entire city, the old houses lean against the slopes of the hills with their beautiful old wooden facades. Being the birthplace of the Nobel-laurate writer Ismail Kadare and also of the notorious communist leader Enver Hoxha, the city is intriguing and controversial as it preserves well all phases of history. There’s plenty to see, not only in this exceptional town, but also in the whole region. "
     },
     {
@@ -59,6 +59,42 @@
       "name": "Berat",
       "image": "https://wander-lush.org/wp-content/uploads/2020/11/Emily-Lush-things-to-do-in-Albania-Berat-Hero.jpg",
       "info": "This upland city in south-central Albania has 2,500 years of history, which has bestowed it with stunning archaeology, quaint residential areas and preserved monuments. Berat’s appeal lies in its UNESCO World Heritage architecture and the epic mountain scenery that shelters the city. Since coming under the yoke of the Ottoman Empire in the 1400s Berat is also a place where Christians and Muslims have lived together in relative peace, with churches and mosques sharing the same space. The cityscape is part of Berat’s charm, where picturesque stone houses on the steep hillsides seem to be stacked on top of each other."
+    },
+    {
+      "id": 11,
+      "name": "Himare",
+      "image": "https://www.intoalbania.com/wp-content/uploads/2018/03/himare-me-logo-1800-1.jpg",
+      "info": "The rocky coast of Southern Albania is dotted with picturesque villages that are home to some 28,000 people. Visitors have their pick from several spots, including Palasë, Dhërmi, Ilias, Vuno, Himarë, Pilur, Kudhes, Qeparo, Borsh, Piqeras, Sasaj, Lukove, Coraj, Kuc, Kallarat, Bolene and Vranisht. Although for those searching for something less secluded, but not as chaotic as a major city, look no further than the town of Himara. Himarë sports a seaside promenade, plentiful Greek-style tavernas, and like the rest of the area, its old town, built on a hill, bears the marks of a rich history. The old town, Kastro, is organized on and around the old castle and the coastal region of Spilea, the touristic and economic center of the region. North of Himarë, visitors can discover the rocky villages of Vuno, Ilias, Dhërmi, and Palasë. Dhermi, has become a popular destination among foreign and local tourists, thanks to the booming number of beach resorts."
+    },
+    {
+      "id": 12,
+      "name": "Pogradec",
+      "image": "https://images.unsplash.com/photo-1611757781293-ded09bc9fe95?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMTAzMzB8MHwxfGFsbHx8fHx8fHx8fDE2MjQ5MzQzNTk&ixlib=rb-1.2.1&q=80&w=1080&utm_source=travelities&utm_medium=referral&utm_campaign=api-credit",
+      "info": "The city of Pogradec and its surrounding area, as one of the Albanian beauty pearls, provides much to discover for its visitors. The region dominated by the fantastic Ohrid Lake, surrounded by fields nestled before picturesque mountains, will be your panorama throughout your holidays in Pogradec. The harmony of nature, and the friendliness of the inhabitants, will bring you back again and again . The sunny days at the beaches along the lake, the strolls along the promenade, as well as the various specialty dishes and local wine enjoyed in the restaurants will provide unforgettable moments for you. Pogradeci is one of the most charming tourist resorts in Albania because of its position near the Ohrid Lake,which distinguishes itself for clear water. Fish Koran, which is similar to the trout, is reared in this lake. Besides the beautiful beach, your staying in Pogradec is made more interesting by the excursion to the tourist center of Drilon ( 5 km eastward ) with crystal clear fountains that fill the beautiful channels surrounded with trees and by ornamental plants."
+    },
+    {
+      "id": 13,
+      "name": "Tropoja",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Pejzazh_Fshati_Shoshan.jpg",
+      "info": "Tropoja has been and remains the tourist pearl of the Albanian Alps where the natural beauties are perfectly intertwined with its many years of history. Tropoja is a place full of charm and beauty, a place that pleases the eye with its pure and calm nature. In Tropoja lives a community of people with a pure heart, clear mind, loving and very hospitable people."
+    },
+    {
+      "id": 14,
+      "name": "Kruja",
+      "image": "http://www.ivisitalbania.com/media/catalog/product/cache/1/image/650x/040ec09b1e35df139433887a97daa66f/p/a/pazari_kruje2.jpg",
+      "info": "Located a short trip away from the capital Tirana, Kruja is a must-visit spot for anyone heading to Albania for the first time. Kruja is home to the national ethnographic museum, but it is best known for being where the Skanderbeg museum can be found. Located in the Kruja castle, the museum is one of Albania’s most important and popular tourist attractions. It was from this fortress that Albania’s hero – George Kastrioti Skanderbeg – defended the country from Ottoman invasion over a period spanning three decades. The castle also offers staggering views of the Adriatic Sea. The national park Qafe Shtama and the tomb of Sari Saltik are also located close to Kruja."
+    },
+    {
+      "id": 15,
+      "name": "Ksamil ",
+      "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/78512540.jpg?k=1a512c0370a80ccac5be83c186f5138b122c0a36e27246755fd02c8a47c259cc&o=&hp=1",
+      "info": "The highlight of the Albanian Riviera is perhaps the Ksamil Islands, a remote group of three small islands located just off the coast, accessible only by boat from the small town of Ksamil. Part of the larger Butrint National Park, the Ksamil Islands are a fantastic example of Albania at its most untouched and unspoiled. Visiting the Blue Eye Spring is also a must for anyone who wants to experience what Ksamil has to offer during their magical Albanian break. July and August are the busiest time of year for the Ksamil Islands, but even then there are few tourists around here."
+    },
+    {
+      "id": 16,
+      "name": "Fier ",
+      "image": "https://64.media.tumblr.com/29e81d0dca61edeb2b5d534d452b45d9/tumblr_oz54n8UvN41vmh7uvo1_640.jpg",
+      "info": "Apollonia was once one of the most important cities in the world, and as such it is a must for anyone visiting Albania for the first time. Found in the heart of Albania, within easy reach from the city of Fier, Apollonia’s ruins are breathtaking and the views from this part of the country are superb too. Once upon a time, Apollonia was listed among the dominions of Pyrrhus of Epirus. Those days are long gone, but Apollonia should still be on the itinerary for anyone who wants to learn more about Albania’s rich history up close."
     }
   ],
   "todo": [
