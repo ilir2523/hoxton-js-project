@@ -144,10 +144,10 @@ function renderHeader() {
     contactLinkEl.setAttribute("href", "#")
     contactLinkEl.setAttribute("class", "header-ul-right")
     contactLinkEl.textContent = "Contact"
-contactLinkEl.addEventListener("click", function (){
-    state.tab = "contact-page"
-    render()
-})
+    contactLinkEl.addEventListener("click", function () {
+        state.tab = "contact-page"
+        render()
+    })
     contactLiEl.append(contactLinkEl)
 
     ulHeaderLeft.append(homeLiEl, whereToGoEl, whatToDoEl, contactLiEl)
@@ -183,8 +183,53 @@ contactLinkEl.addEventListener("click", function (){
 
     headerEl.append(pageNameEl, ulHeaderLeft, headerButtonEl)
     document.body.append(headerEl)
-}
 
+
+}
+function renderHamburgerMenu(){
+
+    //HAMBURGER Menu
+
+
+    const menu_btn = document.createElement("button")
+    menu_btn.setAttribute("class", "hamburger")
+    const barMenuEl = document.createElement("div")
+    barMenuEl.setAttribute("class", "bar")
+    
+    menu_btn.append(barMenuEl)
+    headerEl.append(menu_btn)
+    document.body.append(headerEl)
+    
+    menu_btn.addEventListener("click", function () {
+        menu_btn.classList.toggle('is-active')
+        navMenuEl.classList.toggle('is-active')
+    })
+
+    const navMenuEl=  document.createElement("nav")
+    navMenuEl.setAttribute("class", "mobile-nav")
+    const homeLinkEl = document.createElement("a")
+    homeLinkEl.setAttribute("href", "#")
+    homeLinkEl.textContent= "Home"
+    
+    const whereToGoLinkEl = document.createElement("a")
+    whereToGoLinkEl.setAttribute("href", "#")
+    whereToGoLinkEl.textContent= "Where To Go"
+    
+    const whatToDoLinkEl = document.createElement("a")
+    whatToDoLinkEl.setAttribute("href", "#")
+    whatToDoLinkEl.textContent= "What To Do"
+    
+    const contactLinkEl = document.createElement("a")
+    contactLinkEl.setAttribute("href", "#")
+    contactLinkEl.textContent= "Home"
+    
+    navMenuEl.append(homeLinkEl, whereToGoLinkEl, whatToDoLinkEl, contactLinkEl)
+    document.body.append(navMenuEl)
+
+
+
+    
+}
 //CREATING SIGN UP FORM 
 function renderSignUp() {
     const modalWrapperEl = document.createElement('div')
@@ -377,7 +422,7 @@ function renderWhereToGoMain() {
         searchH2El.append(closeSearchEl)
         whereToGosectionEl.append(searchH2El)
 
-    } else if(filterPaceFromPlaces() === []) {
+    } else if (filterPaceFromPlaces() === []) {
         const searchH2El = document.createElement('h2')
         searchH2El.setAttribute('class', 'search-h2-el')
         searchH2El.textContent = `Current search: ${state.search}`
@@ -471,7 +516,7 @@ function createIntervalImageReplacer() {
             state.imageIndex = 0
         }
 
-        const imageToReplace = state.places?.[state.imageIndex]?.image
+        const imageToReplace = state.places ?.[state.imageIndex]?.image
 
         const firstImageEl = document.querySelector('.image-main-section')
         firstImageEl.setAttribute('src', imageToReplace)
@@ -712,7 +757,7 @@ function renderContactPage() {
     submitInputEl.setAttribute("type", "submit")
     submitInputEl.setAttribute("value", "Submit")
 
-    formSectionEl.append(labelFirstName,inputFirstName, labelEmailEl, inputEmailEl, labelSubjectEl, subjectTextAreaEl, submitInputEl)
+    formSectionEl.append(labelFirstName, inputFirstName, labelEmailEl, inputEmailEl, labelSubjectEl, subjectTextAreaEl, submitInputEl)
     console.log(formSectionEl)
     mainEl.append(infoSectionEl, formSectionEl)
     document.body.append(mainEl)
