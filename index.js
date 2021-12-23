@@ -78,6 +78,14 @@ function getTodosFromServerToTodos() {
     })
 }
 
+function filterPaceFromPlaces() {
+    let placesToDisplay = state.places.filter(place =>
+        place.name.toLowerCase().includes(state.search)
+    )
+
+    return placesToDisplay
+}
+
 getCitiesFromServerToPlaces()
 getTodosFromServerToTodos()
 
@@ -348,7 +356,6 @@ function renderWhereToGoMain() {
 
     const whereToGosectionEl = document.createElement('section')
     whereToGosectionEl.setAttribute('class', 'where-to-go-main-section')
-    whereToGosectionEl.setAttribute('style', 'height: 100vh;')
 
     let placesToDisplay = state.places
     if (state.search !== null) {
@@ -360,7 +367,7 @@ function renderWhereToGoMain() {
 
         const closeSearchEl = document.createElement('button')
         closeSearchEl.setAttribute('class', 'search-close-btn')
-        closeSearchEl.textContent = 'X'
+        closeSearchEl.textContent = 'X Close'
         closeSearchEl.addEventListener('click', function () {
             state.search = null
             state.tab = null
@@ -377,7 +384,7 @@ function renderWhereToGoMain() {
 
         const closeSearchEl = document.createElement('button')
         closeSearchEl.setAttribute('class', 'search-close-btn')
-        closeSearchEl.textContent = 'X'
+        closeSearchEl.textContent = 'X Close'
         closeSearchEl.addEventListener('click', function () {
             state.search = null
             state.tab = null
@@ -414,8 +421,6 @@ function renderWhereToGoMain() {
         placesContainerDivEl.append(placeImageEl, placeNameH3El)
         whereToGosectionEl.append(placesContainerDivEl)
 
-        // mainEl.append(whereToGosectionEl)
-        // document.body.append(mainEl)
     }
     mainEl.append(whereToGosectionEl)
     document.body.append(mainEl)
@@ -480,14 +485,6 @@ function createIntervalImageReplacer() {
     const intervalId = setInterval(replaceImage, 5000)
     console.log('set new interval id into state => ', intervalId)
     state.currentIntervalId = intervalId
-}
-
-function filterPaceFromPlaces() {
-    let placesToDisplay = state.places.filter(place =>
-        place.name.includes(state.search)
-    )
-
-    return placesToDisplay
 }
 
 function renderMain() {
@@ -751,7 +748,7 @@ function renderSearchButton() {
     searchFormEl.setAttribute("class", "search-form")
     searchFormEl.addEventListener('submit', function (event) {
         event.preventDefault()
-        state.search = searchInputEl.value
+        state.search = searchInputEl.value.toLowerCase()
         state.modal = ''
         state.tab = 'search-tab'
         render()
