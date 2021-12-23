@@ -329,7 +329,7 @@ transition: 0.3s;
 
 }
 .hamburger.is-active:after .bar{
-  opacity: 0;  
+  opacity: 0;
 }
 .mobile-nav{
     position: fixed;
@@ -343,11 +343,14 @@ transition: 0.3s;
     padding-top: 120px;
     transition: 0.4s;
 }
+
 .mobile-nav.is-active{
 left: 0;
 }
+
 .mobile-nav a {
-    display: inline-block ;
+    display: grid ;
+    grid-auto-flow: row;
     width: 100%;
     max-width: 200px;
     margin: 0 auto 16px;
@@ -357,6 +360,7 @@ left: 0;
     background-color: #45a049;
     text-decoration: none;
 }
+
 .mobile-nav a:hover{
     background-color: #375838;
 }
@@ -366,6 +370,12 @@ left: 0;
 
     }
     .hamburger{
+        display: none;
+    }
+}
+
+@media (max-width: 768px){
+    .left-ul-header {
         display: none;
     }
 }

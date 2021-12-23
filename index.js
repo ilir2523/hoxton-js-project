@@ -26,8 +26,8 @@ function signIn(email, password) {
         })
         .then(function (user) {
             if (user.password === password) {
-                alert('Welcome')
                 state.user = user
+                alert('Welcome')
                 render()
             } else {
                 alert('Wrong email/password. Please try again.')
@@ -184,52 +184,53 @@ function renderHeader() {
     headerEl.append(pageNameEl, ulHeaderLeft, headerButtonEl)
     document.body.append(headerEl)
 
-
-}
-function renderHamburgerMenu(){
-
-    //HAMBURGER Menu
-
-
     const menu_btn = document.createElement("button")
     menu_btn.setAttribute("class", "hamburger")
     const barMenuEl = document.createElement("div")
     barMenuEl.setAttribute("class", "bar")
-    
+
     menu_btn.append(barMenuEl)
     headerEl.append(menu_btn)
     document.body.append(headerEl)
-    
+
     menu_btn.addEventListener("click", function () {
         menu_btn.classList.toggle('is-active')
         navMenuEl.classList.toggle('is-active')
     })
 
-    const navMenuEl=  document.createElement("nav")
+    const navMenuEl = document.createElement("nav")
     navMenuEl.setAttribute("class", "mobile-nav")
     const homeLinkEl = document.createElement("a")
     homeLinkEl.setAttribute("href", "#")
-    homeLinkEl.textContent= "Home"
-    
+    homeLinkEl.textContent = "Home"
+    homeLinkEl.addEventListener('click', function () {
+        state.tab = null
+        state.selectedPlace = null
+        render()
+    })
+
     const whereToGoLinkEl = document.createElement("a")
     whereToGoLinkEl.setAttribute("href", "#")
-    whereToGoLinkEl.textContent= "Where To Go"
-    
+    whereToGoLinkEl.textContent = "Where To Go"
+    whereToGoLinkEl.addEventListener('click', function () {
+        state.tab = 'where-to-go'
+        state.selectedPlace = null
+        render()
+    })
+
     const whatToDoLinkEl = document.createElement("a")
     whatToDoLinkEl.setAttribute("href", "#")
-    whatToDoLinkEl.textContent= "What To Do"
-    
-    const contactLinkEl = document.createElement("a")
-    contactLinkEl.setAttribute("href", "#")
-    contactLinkEl.textContent= "Home"
-    
+    whatToDoLinkEl.textContent = "What To Do"
+    whatToDoLinkEl.addEventListener('click', function () {
+        state.tab = 'what-to-do'
+        state.selectedPlace = null
+        render()
+    })
+
     navMenuEl.append(homeLinkEl, whereToGoLinkEl, whatToDoLinkEl, contactLinkEl)
     document.body.append(navMenuEl)
-
-
-
-    
 }
+
 //CREATING SIGN UP FORM 
 function renderSignUp() {
     const modalWrapperEl = document.createElement('div')
@@ -516,7 +517,7 @@ function createIntervalImageReplacer() {
             state.imageIndex = 0
         }
 
-        const imageToReplace = state.places ?.[state.imageIndex]?.image
+        const imageToReplace = state.places?.[state.imageIndex]?.image
 
         const firstImageEl = document.querySelector('.image-main-section')
         firstImageEl.setAttribute('src', imageToReplace)
