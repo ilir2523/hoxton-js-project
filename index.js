@@ -5,6 +5,7 @@ const state = {
     selectedPlace: null,
     modal: null,
     user: null,
+    search: null,
 
     currentIntervalId: null,
     imageIndex: 0
@@ -75,6 +76,14 @@ function getTodosFromServerToTodos() {
         state.todos = todo
         render()
     })
+}
+
+function filterPaceFromPlaces() {
+    let placesToDisplay = state.places.filter(place =>
+        place.name.toLowerCase().includes(state.search)
+    )
+
+    return placesToDisplay
 }
 
 getCitiesFromServerToPlaces()
@@ -150,6 +159,10 @@ contactLinkEl.addEventListener("click", function (){
     const searchButtonEl = document.createElement("button")
     const searchImageEl = document.createElement("img")
     searchImageEl.setAttribute('src', 'icons/search_black_24dp.svg')
+    searchButtonEl.addEventListener('click', function () {
+        state.modal = 'search'
+        render()
+    })
 
     searchButtonEl.append(searchImageEl)
     liSearchButton.append(searchButtonEl)
@@ -344,7 +357,50 @@ function renderWhereToGoMain() {
     const whereToGosectionEl = document.createElement('section')
     whereToGosectionEl.setAttribute('class', 'where-to-go-main-section')
 
-    for (const place of state.places) {
+    let placesToDisplay = state.places
+    if (state.search !== null) {
+        placesToDisplay = filterPaceFromPlaces()
+
+        const searchH2El = document.createElement('h2')
+        searchH2El.setAttribute('class', 'search-h2-el')
+        searchH2El.textContent = `Current search: ${state.search}`
+
+        const closeSearchEl = document.createElement('button')
+        closeSearchEl.setAttribute('class', 'search-close-btn')
+        closeSearchEl.textContent = 'X Close'
+        closeSearchEl.addEventListener('click', function () {
+            state.search = null
+            state.tab = null
+            render()
+        })
+
+        searchH2El.append(closeSearchEl)
+        whereToGosectionEl.append(searchH2El)
+
+    } else if(filterPaceFromPlaces() === []) {
+        const searchH2El = document.createElement('h2')
+        searchH2El.setAttribute('class', 'search-h2-el')
+        searchH2El.textContent = `Current search: ${state.search}`
+
+        const closeSearchEl = document.createElement('button')
+        closeSearchEl.setAttribute('class', 'search-close-btn')
+        closeSearchEl.textContent = 'X Close'
+        closeSearchEl.addEventListener('click', function () {
+            state.search = null
+            state.tab = null
+            render()
+        })
+
+        const alertMessageSpanEl = document.createElement('span')
+        alertMessageSpanEl.setAttribute('class', 'search-span-el')
+        alertMessageSpanEl.textContent = `Sorry no place with that name`
+
+        searchH2El.append(closeSearchEl)
+        whereToGosectionEl.append(searchH2El, alertMessageSpanEl)
+    }
+
+
+    for (const place of placesToDisplay) {
         const placesContainerDivEl = document.createElement('div')
         placesContainerDivEl.setAttribute('class', 'container')
         placesContainerDivEl.addEventListener('click', function () {
@@ -365,9 +421,9 @@ function renderWhereToGoMain() {
         placesContainerDivEl.append(placeImageEl, placeNameH3El)
         whereToGosectionEl.append(placesContainerDivEl)
 
-        mainEl.append(whereToGosectionEl)
-        document.body.append(mainEl)
     }
+    mainEl.append(whereToGosectionEl)
+    document.body.append(mainEl)
 }
 
 function renderWhatToDoMain() {
@@ -662,11 +718,61 @@ function renderContactPage() {
     document.body.append(mainEl)
 }
 
+function renderSearchButton() {
+    const modalWrapperSearchEl = document.createElement("div")
+    modalWrapperSearchEl.setAttribute("class", "modal-wrapper")
+    modalWrapperSearchEl.addEventListener('click', function () {
+        state.modal = ''
+        render()
+    })
+
+    const modalSearchEl = document.createElement("div")
+    modalSearchEl.setAttribute("class", "modal")
+    modalSearchEl.addEventListener('click', function (event) {
+        event.stopPropagation()
+    })
+
+    const closeModalButtonEl = document.createElement("button")
+    closeModalButtonEl.setAttribute("class", "modal__close-btn")
+    closeModalButtonEl.textContent = 'X'
+    closeModalButtonEl.addEventListener('click', function () {
+        state.modal = ''
+        render()
+    })
+
+    const searchTitleEl = document.createElement("h2")
+    searchTitleEl.setAttribute("class", "search-title")
+    searchTitleEl.textContent = "Search for a place"
+
+    const searchFormEl = document.createElement("form")
+    searchFormEl.setAttribute("class", "search-form")
+    searchFormEl.addEventListener('submit', function (event) {
+        event.preventDefault()
+        state.search = searchInputEl.value.toLowerCase()
+        state.modal = ''
+        state.tab = 'search-tab'
+        render()
+    })
+
+    const searchInputEl = document.createElement('input')
+    searchInputEl.setAttribute('type', 'search')
+    searchInputEl.setAttribute('id', 'search-input')
+    searchInputEl.setAttribute('class', 'search-input')
+    searchInputEl.setAttribute('placeholder', 'Search...')
+
+    searchFormEl.append(searchInputEl)
+    modalSearchEl.append(searchTitleEl, searchFormEl, closeModalButtonEl)
+    modalWrapperSearchEl.append(modalSearchEl)
+    document.body.append(modalWrapperSearchEl)
+}
+
 function renderModal() {
     if (state.modal === 'sign-up') {
         renderSignUp()
     } else if (state.modal === 'sign-in') {
         renderSignIn()
+    } else if (state.modal === 'search') {
+        renderSearchButton()
     }
 }
 
@@ -676,7 +782,6 @@ function render() {
     if (state.tab === null) {
         renderMain()
         createIntervalImageReplacer()
-        
     } else if (state.tab === 'one-place') {
         renderOnePage(state.places)
         clearInterval(state.currentIntervalId)
@@ -692,8 +797,10 @@ function render() {
     } else if (state.tab === 'contact-page') {
         clearInterval(state.currentIntervalId)
         renderContactPage()
+    } else if (state.tab === 'search-tab' && state.search !== null) {
+        clearInterval(state.currentIntervalId)
+        renderWhereToGoMain()
     }
-
     renderModal()
     renderFooter()
 }
