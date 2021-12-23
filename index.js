@@ -26,8 +26,8 @@ function signIn(email, password) {
         })
         .then(function (user) {
             if (user.password === password) {
-                alert('Welcome')
                 state.user = user
+                alert('Welcome')
                 render()
             } else {
                 alert('Wrong email/password. Please try again.')
@@ -144,10 +144,10 @@ function renderHeader() {
     contactLinkEl.setAttribute("href", "#")
     contactLinkEl.setAttribute("class", "header-ul-right")
     contactLinkEl.textContent = "Contact"
-contactLinkEl.addEventListener("click", function (){
-    state.tab = "contact-page"
-    render()
-})
+    contactLinkEl.addEventListener("click", function () {
+        state.tab = "contact-page"
+        render()
+    })
     contactLiEl.append(contactLinkEl)
 
     ulHeaderLeft.append(homeLiEl, whereToGoEl, whatToDoEl, contactLiEl)
@@ -183,6 +183,52 @@ contactLinkEl.addEventListener("click", function (){
 
     headerEl.append(pageNameEl, ulHeaderLeft, headerButtonEl)
     document.body.append(headerEl)
+
+    const menu_btn = document.createElement("button")
+    menu_btn.setAttribute("class", "hamburger")
+    const barMenuEl = document.createElement("div")
+    barMenuEl.setAttribute("class", "bar")
+
+    menu_btn.append(barMenuEl)
+    headerEl.append(menu_btn)
+    document.body.append(headerEl)
+
+    menu_btn.addEventListener("click", function () {
+        menu_btn.classList.toggle('is-active')
+        navMenuEl.classList.toggle('is-active')
+    })
+
+    const navMenuEl = document.createElement("nav")
+    navMenuEl.setAttribute("class", "mobile-nav")
+    const homeLinkEl = document.createElement("a")
+    homeLinkEl.setAttribute("href", "#")
+    homeLinkEl.textContent = "Home"
+    homeLinkEl.addEventListener('click', function () {
+        state.tab = null
+        state.selectedPlace = null
+        render()
+    })
+
+    const whereToGoLinkEl = document.createElement("a")
+    whereToGoLinkEl.setAttribute("href", "#")
+    whereToGoLinkEl.textContent = "Where To Go"
+    whereToGoLinkEl.addEventListener('click', function () {
+        state.tab = 'where-to-go'
+        state.selectedPlace = null
+        render()
+    })
+
+    const whatToDoLinkEl = document.createElement("a")
+    whatToDoLinkEl.setAttribute("href", "#")
+    whatToDoLinkEl.textContent = "What To Do"
+    whatToDoLinkEl.addEventListener('click', function () {
+        state.tab = 'what-to-do'
+        state.selectedPlace = null
+        render()
+    })
+
+    navMenuEl.append(homeLinkEl, whereToGoLinkEl, whatToDoLinkEl, contactLinkEl)
+    document.body.append(navMenuEl)
 }
 
 //CREATING SIGN UP FORM 
@@ -377,7 +423,7 @@ function renderWhereToGoMain() {
         searchH2El.append(closeSearchEl)
         whereToGosectionEl.append(searchH2El)
 
-    } else if(filterPaceFromPlaces() === []) {
+    } else if (filterPaceFromPlaces() === []) {
         const searchH2El = document.createElement('h2')
         searchH2El.setAttribute('class', 'search-h2-el')
         searchH2El.textContent = `Current search: ${state.search}`
@@ -712,7 +758,7 @@ function renderContactPage() {
     submitInputEl.setAttribute("type", "submit")
     submitInputEl.setAttribute("value", "Submit")
 
-    formSectionEl.append(labelFirstName,inputFirstName, labelEmailEl, inputEmailEl, labelSubjectEl, subjectTextAreaEl, submitInputEl)
+    formSectionEl.append(labelFirstName, inputFirstName, labelEmailEl, inputEmailEl, labelSubjectEl, subjectTextAreaEl, submitInputEl)
     console.log(formSectionEl)
     mainEl.append(infoSectionEl, formSectionEl)
     document.body.append(mainEl)
