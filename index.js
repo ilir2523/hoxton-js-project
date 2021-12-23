@@ -86,9 +86,6 @@ function filterPaceFromPlaces() {
     return placesToDisplay
 }
 
-getCitiesFromServerToPlaces()
-getTodosFromServerToTodos()
-
 function renderHeader() {
     const headerEl = document.createElement('header')
     headerEl.setAttribute('class', 'header-section')
@@ -227,7 +224,16 @@ function renderHeader() {
         render()
     })
 
-    navMenuEl.append(homeLinkEl, whereToGoLinkEl, whatToDoLinkEl, contactLinkEl)
+    const contactBLinkEl = document.createElement("a")
+    contactBLinkEl.setAttribute("href", "#")
+    contactBLinkEl.setAttribute("class", "header-ul-right")
+    contactBLinkEl.textContent = "Contact"
+    contactBLinkEl.addEventListener("click", function () {
+        state.tab = "contact-page"
+        render()
+    })
+
+    navMenuEl.append(homeLinkEl, whereToGoLinkEl, whatToDoLinkEl, contactBLinkEl)
     document.body.append(navMenuEl)
 }
 
@@ -850,4 +856,10 @@ function render() {
     renderModal()
     renderFooter()
 }
-render()
+function init() {
+    getCitiesFromServerToPlaces()
+    getTodosFromServerToTodos()
+    render()
+}
+
+init()
